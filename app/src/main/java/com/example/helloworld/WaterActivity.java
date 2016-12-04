@@ -1,5 +1,6 @@
 package com.example.helloworld;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
@@ -8,13 +9,28 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
+//Look into scale to measure numbers
+//Look into save bundle state
+//adaptiveView, NVC
+
+
 public class WaterActivity extends AppCompatActivity {
-    public final static String EXTRA_MESSAGE = "";
+    public final static String EXTRA_MESSAGE = "1";
+    public final static String LIST = "";
+    ArrayList<Integer> rating = new ArrayList<Integer>();
     int i = -1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_water);
+        SharedPreferences waterPref = getSharedPreferences("water", 0);
+        rating.clear();
+        rating.add(waterPref.getInt("0", 0));
+        for(int x = 0; x < waterPref.getInt("0", 0); x++){
+            rating.add(waterPref.getInt(Integer.toString(x+1),-1));
+        }
     }
 
     public void sendMessage(View view) {
@@ -40,7 +56,24 @@ public class WaterActivity extends AppCompatActivity {
         String message2 = eval(num2);
         String fString = message.concat(message2);
         String ffString = fString.concat(conv(i));
-        intent.putExtra(EXTRA_MESSAGE, ffString);
+        if(rating.get(0) == 0) {
+            rating.set(0, 3);
+            rating.add(eval2(num));
+            rating.add(eval2(num2));
+            rating.add(i);
+        }
+        else{
+            rating.set(1, eval2(num));
+            rating.set(2, eval2(num2));
+            rating.set(3, i);
+        }
+        intent.putExtra(EXTRA_MESSAGE, "water");
+        intent.putExtra(LIST, rating);
+        startActivity(intent);
+    }
+
+    public void checkStatus(View view){
+        Intent intent = new Intent(this, DisplayMessageActivity.class);
         startActivity(intent);
     }
 
@@ -71,6 +104,14 @@ public class WaterActivity extends AppCompatActivity {
             return "alright... \n";
         else
             return "bad :( \n";
+    }
+    public int eval2(int num) {
+        if(num < 3)
+            return 0;
+        else if (num < 6)
+            return 1;
+        else
+            return 2;
     }
 
     public String conv(int num) {
