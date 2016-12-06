@@ -10,16 +10,20 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class RecyclingActivity extends AppCompatActivity {
 
     public final static String EXTRA_MESSAGE = "";
+    ArrayList<Integer> rating = new ArrayList<Integer>();
     int i = -1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycling);
-
         ViewGroup layout = (ViewGroup) findViewById(R.id.activity_recycling);
+
+
     }
 
     public void sendMessage(View view) {
@@ -28,7 +32,8 @@ public class RecyclingActivity extends AppCompatActivity {
             return;
         }
             Intent intent = new Intent(this, DisplayMessageActivity.class);
-            intent.putExtra(EXTRA_MESSAGE, conv(i));
+
+            intent.putExtra(EXTRA_MESSAGE, "recyc");
             startActivity(intent);
     }
 

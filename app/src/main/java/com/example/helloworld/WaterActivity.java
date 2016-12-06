@@ -74,6 +74,7 @@ public class WaterActivity extends AppCompatActivity {
 
     public void checkStatus(View view){
         Intent intent = new Intent(this, DisplayMessageActivity.class);
+        intent.putExtra(EXTRA_MESSAGE, "water");
         startActivity(intent);
     }
 

@@ -15,17 +15,27 @@ public class DisplayMessageActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Intent intent = getIntent();
+        int[] ids = {R.id.water1, R.id.water2, R.id.water3};
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_message);
         ArrayList<Integer> data = new ArrayList<Integer>();
-        if(intent.getStringExtra(WaterActivity.EXTRA_MESSAGE)!= null){
+        if(intent.getStringExtra(WaterActivity.EXTRA_MESSAGE).matches("water")){
             data = waterData();
+            for(int x = 0; x < data.get(0); x++){
+                if(data.get(x+1) > 1){
+                    TextView tv = (TextView) findViewById(ids[x]);
+                    tv.setVisibility(View.VISIBLE);
+                }
+            }
         }
+
         TextView intTextView = (TextView)findViewById(R.id.tv1);
         for(int i = 0; i < data.size(); i++){
             intTextView.setText(intTextView.getText() + "\n" + Integer.toString(data.get(i)));
         }
         String message = intent.getStringExtra(WaterActivity.EXTRA_MESSAGE);
+        message = "a";
+        message = "v";
         TextView textView = new TextView(this);
         textView.setTextSize(40);
         ViewGroup layout = (ViewGroup) findViewById(R.id.activity_display_message);
