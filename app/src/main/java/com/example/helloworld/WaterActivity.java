@@ -31,7 +31,7 @@ public class WaterActivity extends AppCompatActivity {
         for(int x = 0; x < waterPref.getInt("0", 0); x++){
             rating.add(waterPref.getInt(Integer.toString(x+1),-1));
         }
-        View back = findViewById(R.id.back);
+        View back = findViewById(R.id.main);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -71,17 +71,20 @@ public class SurveyActivity extends AppCompatActivity {
 
         }
     private void openSurvey(int i) {
+        Intent intent = null;
         if (i == 0){
-
+            intent = new Intent(this, GeneralActivity.class);
         }
         if (i == 1){
-            Intent intent = new Intent(this, WaterActivity.class);
-            startActivity(intent);
+            intent = new Intent(this, WaterActivity.class);
         }
         if (i == 2){
-            Intent intent = new Intent(this, RecyclingActivity.class);
+            intent = new Intent(this, RecyclingActivity.class);
+        }
+        if (intent!= null){
             startActivity(intent);
         }
+        else openMainNew();
     }
 
     private void openMainNew(){
