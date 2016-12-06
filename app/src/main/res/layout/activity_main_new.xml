@@ -21,21 +21,24 @@
             android:text="Welcome to the Sustainability Spotlight!"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/welcome" />
+            android:id="@+id/welcome"
+            android:textSize="30sp" />
 
         <TextView
             android:text="Begin the survey to get your grade!"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/begin"
-            android:clickable="true" />
+            android:clickable="true"
+            android:textSize="24sp" />
 
         <TextView
             android:text="Learn more!"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/learn"
-            android:clickable="true" />
+            android:clickable="true"
+            android:textSize="24sp" />
 
         <TextView
             android:text="Sustainability tips!"
@@ -43,6 +46,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/tips"
             android:clickable="true"
-            android:onClick="textBoxOnClick" />
+            android:onClick="textBoxOnClick"
+            android:textSize="24sp" />
     </LinearLayout>
 </RelativeLayout>

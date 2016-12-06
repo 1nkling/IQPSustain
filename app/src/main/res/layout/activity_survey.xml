@@ -23,7 +23,8 @@
             android:text="Welcome to the survey!"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/welcome" />
+            android:id="@+id/welcome"
+            android:textSize="30sp" />
 
         <TextView
             android:text="Breadcrumb Trail"
@@ -31,23 +32,11 @@
             android:layout_height="wrap_content"
             android:id="@+id/breadcrumb" />
 
-        <TextView
-            android:text="General"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/general" />
-
-        <TextView
-            android:text="Dimension one"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/dim1" />
-
-        <TextView
-            android:text="Dimension 2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/dim2" />
+            android:id="@+id/dimensions"></LinearLayout>
 
         <TextView
             android:text="..."
@@ -56,13 +45,13 @@
             android:id="@+id/..." />
 
         <TextView
-            android:text="Settings (Leave to main menu)"
+            android:text="Settings"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/settings" />
 
         <Button
-            android:text="Button"
+            android:text="Main Menu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/back" />
