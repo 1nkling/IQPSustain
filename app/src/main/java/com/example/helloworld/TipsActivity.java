@@ -19,19 +19,16 @@ public class TipsActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tips);
-        Button back = new Button(this);
-        back.setText("Back");
-        ViewGroup vert = (ViewGroup) findViewById(R.id.vert);
-        vert.addView(back);
+        Button back = (Button) findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openNewMain();
+                openMainNew(view);
             }
         });
     }
 
-    void openNewMain(){
+    void openMainNew(View v){
         Intent intent = new Intent(this, Main_NewActivity.class);
         startActivity(intent);
     }

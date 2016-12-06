@@ -79,5 +79,12 @@
             android:layout_centerVertical="true"
             android:text="Status"
             android:onClick="checkStatus"/>
+
+        <Button
+            android:text="Main Menu (DOES NOT SAVE ANSWERS)"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/main"
+            android:onClick="openNewMain (Main_NewActivity)" />
     </LinearLayout>
 </ScrollView>

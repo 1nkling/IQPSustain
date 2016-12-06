@@ -31,6 +31,13 @@ public class SurveyActivity extends AppCompatActivity {
 
     private void init() {
         dimensions = (ViewGroup) findViewById(R.id.dimensions);
+        back = findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openMainNew();
+            }
+        });
         TextView general = new TextView(getApplicationContext());
         general.setText("General");
         general.setClickable(true);
@@ -75,6 +82,11 @@ public class SurveyActivity extends AppCompatActivity {
             Intent intent = new Intent(this, RecyclingActivity.class);
             startActivity(intent);
         }
+    }
+
+    private void openMainNew(){
+        Intent intent = new Intent(this, Main_NewActivity.class);
+        startActivity(intent);
     }
 
 }
