@@ -19,7 +19,18 @@ public class RecyclingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycling);
 
-        ViewGroup layout = (ViewGroup) findViewById(R.id.activity_recycling);
+        ViewGroup layout = (ViewGroup) findViewById(R.id.activity_recycling);View back = findViewById(R.id.main);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openMainNew();
+            }
+        });
+    }
+
+    private void openMainNew() {
+        Intent intent = new Intent(this, Main_NewActivity.class);
+        startActivity(intent);
     }
 
     public void sendMessage(View view) {
