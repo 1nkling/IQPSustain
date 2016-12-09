@@ -41,6 +41,7 @@ public class SurveyActivity extends AppCompatActivity {
         TextView general = new TextView(getApplicationContext());
         general.setText("General");
         general.setClickable(true);
+        general.setTextSize(26);
         general.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,6 +50,7 @@ public class SurveyActivity extends AppCompatActivity {
         });
         TextView water = new TextView(getApplicationContext());
         water.setText("Water");
+        water.setTextSize(26);
         water.setClickable(true);
         water.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +59,7 @@ public class SurveyActivity extends AppCompatActivity {
             }
         });
         TextView recycling = new TextView(getApplicationContext());
+        recycling.setTextSize(26);
         recycling.setText("Recycling");
         recycling.setClickable(true);
         recycling.setOnClickListener(new View.OnClickListener() {
