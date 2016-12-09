@@ -15,6 +15,33 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true" />
+    <TextView
+        android:id="@+id/water1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="Shower less!"
+        android:textSize="30dp"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/water2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="Wash less clothes!"
+        android:textSize="30dp"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/water3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="Turn of lights more often!"
+        android:textSize="30dp"
+        android:visibility="gone"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
