@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<questions>
+    <question>
+        <q> What's up </q>
+        <id> 1 </id>
+        <respType> open </respType>
+        <respNum> 0 </respNum>
+        <rec> Do better </rec>
+    </question>
+    <question>
+        <q> What's up </q>
+        <id> 2 </id>
+        <respType> open </respType>
+        <respNum> 0 </respNum>
+        <rec> Do better </rec>
+    </question>
+    <question>
+        <q> What's up </q>
+        <id> 3 </id>
+        <respType> open </respType>
+        <respNum> 0 </respNum>
+        <rec> Do better </rec>
+    </question>
+</questions>

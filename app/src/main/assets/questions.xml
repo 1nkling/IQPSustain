@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<questions>
+    <question>
+        <q> What is the average length of your showers? </q>
+        <id>1</id>
+        <respType> open </respType>
+        <respNum>1</respNum>
+        <rec> Try to take the shorter showers for saving water. Don’t leave the water running unnecessarily; it can use up to 5 gallon per minute! </rec>
+    </question>
+    <question>
+        <q> On a scale of 1-10, with 10 being the most often, how often do you use washing dishes using a washing machine as opposed to by hand? </q>
+        <id>2</id>
+        <respType> open </respType>
+        <respNum>2</respNum>
+        <rec> According to a study at the University of Bonn in Germany, dishwashers use half of energy, one-six of the water, and less soap than handwashing.  Try to use the machine for big/medium loads!</rec>
+    </question>
+    <question>
+        <q> When using a washing machine, do you use a top-loader (0) or front-loader(1) ?</q>
+        <id>3</id>
+        <respType> open </respType>
+        <respNum>3</respNum>
+        <rec>  Keep an eye out for front-loading machines; they use 40-75% less water than top-loaders!</rec>
+    </question>
+</questions>

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HelloWorld</string>
+    <string name="app_name">$u$tain</string>
     <string name="edit_message">Enter a message</string>
     <string name="button_send">Send</string>
     <string name="q1">How often are the showers in your home used daily?\n</string>
@@ -10,4 +10,7 @@
     <string name="max">Every time</string>
     <string name="med">Sometimes</string>
     <string name="min">Never</string>
+
+    <string name="hello_world">XMLPullParser Activity</string>
+    <string name="menu_settings">Settings</string>
 </resources>
