@@ -52,4 +52,10 @@
         android:text="@string/button_send"
         android:onClick="sendMessage"/>
 
+    <Button
+        android:text="Main Menu (DOES NOT SAVE)"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/main" />
+
 </LinearLayout>

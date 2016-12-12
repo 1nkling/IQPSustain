@@ -74,8 +74,21 @@ public class WaterActivity extends AppCompatActivity {
         for(int x = 0; x < waterPref.getInt("0", 0); x++){
             rating.add(waterPref.getInt(Integer.toString(x+1),-1));
         }
+<<<<<<< HEAD
         */
 
+        View back = findViewById(R.id.main);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openMainNew();
+            }
+        });
+    }
+
+    private void openMainNew() {
+        Intent intent = new Intent(this, Main_NewActivity.class);
+        startActivity(intent);
     }
 
     public void sendMessage(View view) {
