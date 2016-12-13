@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <questions>
     <question>
-        <q> What is the average length of your showers? </q>
+        <q> What is the average length of your showers (in minutes)? </q>
         <id>1</id>
         <respType> open </respType>
         <respNum>1</respNum>

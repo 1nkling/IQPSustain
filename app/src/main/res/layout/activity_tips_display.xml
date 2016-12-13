@@ -4,24 +4,21 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:text="Sustainablity Tips!"
+        android:text="TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/learn"
+        android:id="@+id/name"
         android:textSize="30sp" />
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/stuff"
-        android:visibility="visible"></LinearLayout>
+        android:id="@+id/content"></LinearLayout>
 
     <Button
         android:text="Back"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/back"
-        android:onClick="openNewMain" />
-
+        android:id="@+id/back" />
 </LinearLayout>

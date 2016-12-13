@@ -39,7 +39,6 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
->>>>>>> 276a40d4b02144cb41ba532d6fc3083d0f0668e4
     </application>
 
 </manifest>
