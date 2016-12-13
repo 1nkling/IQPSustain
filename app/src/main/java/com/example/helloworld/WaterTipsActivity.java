@@ -34,6 +34,12 @@ public class WaterTipsActivity extends AppCompatActivity {
                 openMainTips();
             }
         });
+        TextView tip1 = new TextView(this);
+        tip1.setText("Reducing the flow of your appliances is critical, Low flow everything!!");
+        TextView tip2 = new TextView(this);
+        tip2.setText("Watering your yard at night saves lots of water otherwise lsot to evaporation");
+        content.addView(tip1);
+        content.addView(tip2);
     }
 
     private void openMainTips() {
