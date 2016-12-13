@@ -8,12 +8,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 /**
  * Created by peterdebrine on 12/6/16.
  */
 
 public class TipsActivity extends AppCompatActivity {
+    ViewGroup stuff;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -23,13 +26,70 @@ public class TipsActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openMainNew(view);
+                openMainNew();
             }
         });
+        init();
     }
 
-    void openMainNew(View v){
+    void openMainNew(){
         Intent intent = new Intent(this, Main_NewActivity.class);
         startActivity(intent);
     }
+
+    private void init() {
+        stuff = (ViewGroup) findViewById(R.id.stuff);
+        Button general = new Button(getApplicationContext());
+        general.setText("General");
+        general.setClickable(true);
+        general.setTextSize(26);
+        general.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openTip(0);
+            }
+        });
+        Button water = new Button(getApplicationContext());
+        water.setText("Water");
+        water.setTextSize(26);
+        water.setClickable(true);
+        water.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openTip(1);
+            }
+        });
+        Button recycling = new Button(getApplicationContext());
+        recycling.setTextSize(26);
+        recycling.setText("Recycling");
+        recycling.setClickable(true);
+        recycling.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openTip(2);
+            }
+        });
+        stuff.addView(general);
+        stuff.addView(water);
+        stuff.addView(recycling);
+
+    }
+
+    private void openTip(int i) {
+        Intent intent = null;
+        if (i == 0) {
+            intent = new Intent(this, GeneralTipsActivity.class);
+        }
+        if (i == 1) {
+            intent = new Intent(this, WaterTipsActivity.class);
+        }
+        if (i == 2) {
+            intent = new Intent(this, RecyclingTipsActivity.class);
+        }
+        if (intent != null) {
+            startActivity(intent);
+        } else openMainNew();
+    }
+
+
 }

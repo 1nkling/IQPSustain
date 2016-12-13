@@ -54,7 +54,8 @@ public class Main_NewActivity extends AppCompatActivity {
     }
 
     protected void openTips(){
-        setContentView(R.layout.activity_tips);
+        Intent intent = new Intent(this, TipsActivity.class);
+        startActivity(intent);
     }
 
     protected void openLearn(){

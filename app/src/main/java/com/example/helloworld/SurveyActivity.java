@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -38,17 +39,19 @@ public class SurveyActivity extends AppCompatActivity {
                 openMainNew();
             }
         });
-        TextView general = new TextView(getApplicationContext());
+        Button general = new Button(getApplicationContext());
         general.setText("General");
         general.setClickable(true);
+        general.setTextSize(26);
         general.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openSurvey(0);
             }
         });
-        TextView water = new TextView(getApplicationContext());
+        Button water = new Button(getApplicationContext());
         water.setText("Water");
+        water.setTextSize(26);
         water.setClickable(true);
         water.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,7 +59,8 @@ public class SurveyActivity extends AppCompatActivity {
                 openSurvey(1);
             }
         });
-        TextView recycling = new TextView(getApplicationContext());
+        Button recycling = new Button(getApplicationContext());
+        recycling.setTextSize(26);
         recycling.setText("Recycling");
         recycling.setClickable(true);
         recycling.setOnClickListener(new View.OnClickListener() {

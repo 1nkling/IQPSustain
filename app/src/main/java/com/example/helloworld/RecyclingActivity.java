@@ -35,10 +35,6 @@ public class RecyclingActivity extends AppCompatActivity {
     private void openMainNew() {
         Intent intent = new Intent(this, Main_NewActivity.class);
         startActivity(intent);
-
-
-
-
     }
 
     public void sendMessage(View view) {
