@@ -26,12 +26,6 @@
             android:id="@+id/welcome"
             android:textSize="30sp" />
 
-        <TextView
-            android:text="Breadcrumb Trail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/breadcrumb" />
-
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -43,12 +37,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/..." />
-
-        <TextView
-            android:text="Settings"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/settings" />
 
         <Button
             android:text="Main Menu"
