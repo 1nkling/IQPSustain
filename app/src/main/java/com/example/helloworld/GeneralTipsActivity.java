@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutCompat;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 /**
  * Created by peterdebrine on 12/13/16.
@@ -15,6 +16,7 @@ import android.widget.LinearLayout;
 public class GeneralTipsActivity extends AppCompatActivity {
     LinearLayout content;
     View back;
+    TextView name;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -24,6 +26,8 @@ public class GeneralTipsActivity extends AppCompatActivity {
     }
 
     private void init() {
+        name = (TextView) findViewById(R.id.name);
+        name.setText("General Tips");
         content = (LinearLayout) findViewById(R.id.content);
         back = findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
@@ -32,6 +36,11 @@ public class GeneralTipsActivity extends AppCompatActivity {
                 openMainTips();
             }
         });
+        TextView tip1 = new TextView(this);
+        tip1.setTextSize(20);
+        tip1.setText("At every moment people often have things on that do not need to be," +
+                "you should make a conscious effort to minimize this kind of waste. For example leaving the refrigerator open.");
+        content.addView(tip1);
     }
 
     private void openMainTips() {
