@@ -38,6 +38,7 @@ public class WaterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_water);
         //TextView textView = (TextView) findViewById(R.id.text);
+        //parses xml file with questions inside
         try {
             XMLParser parser = new XMLParser();
             Questions = parser.parse(getApplicationContext().getAssets().open("questions.xml"));
@@ -52,7 +53,7 @@ public class WaterActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        //dynamically generates Views based on parsed xml file
         for(int i = 0; i < Questions.size() ; i++) {
             TextView tv = new TextView(this);
             tv.setText(Questions.get(i).getQ());
@@ -88,11 +89,12 @@ public class WaterActivity extends AppCompatActivity {
         });
     }
 
+    //returns to home menu
     private void openMainNew() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
-
+    //passes responses to a display activity and saves them to memory
     public void sendMessage(View view) {
         EditText editText = (EditText) findViewById(R.id.edit_message);
         EditText editText2 = (EditText) findViewById(R.id.edit_message2);
@@ -159,6 +161,7 @@ public class WaterActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //Checks results of previous responses
     public void checkStatus(View view){
         Intent intent = new Intent(this, DisplayMessageActivity.class);
         intent.putExtra(EXTRA_MESSAGE, "water");
@@ -171,6 +174,7 @@ public class WaterActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //unused; gets value from series of radio buttons
     public void onRadioButtonClicked(View view) {
         boolean checked = ((RadioButton) view).isChecked();
 
