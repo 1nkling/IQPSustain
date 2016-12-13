@@ -27,30 +27,23 @@
             android:textSize="30sp"
             android:textAlignment="center" />
 
-        <TextView
-            android:text="Begin the survey to get your grade!"
+        <Button
+            android:text="Begin the Survey!"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/begin"
-            android:clickable="true"
-            android:textSize="24sp"
-            android:textAlignment="center" />
+            android:id="@+id/begin" />
 
-        <TextView
-            android:text="Sustainability tips!"
+        <Button
+            android:text="Sustainability Tips"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/tips"
-            android:clickable="true"
-            android:onClick="textBoxOnClick"
-            android:textSize="24sp" />
+            android:id="@+id/tips" />
 
-        <TextView
-            android:text="Need Help?"
+        <Button
+            android:text="Help"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/learn"
-            android:clickable="true"
-            android:textSize="24sp" />
+            android:id="@+id/learn" />
+
     </LinearLayout>
 </RelativeLayout>

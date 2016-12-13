@@ -3,6 +3,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class Main_NewActivity extends AppCompatActivity {
@@ -10,9 +11,9 @@ public class Main_NewActivity extends AppCompatActivity {
     TextView begin, learn, tips;
 
     void init(){
-        begin = (TextView) findViewById(R.id.begin);
-        learn = (TextView) findViewById(R.id.learn);
-        tips = (TextView) findViewById(R.id.tips);
+        begin = (Button) findViewById(R.id.begin);
+        learn = (Button) findViewById(R.id.learn);
+        tips = (Button) findViewById(R.id.tips);
         begin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
