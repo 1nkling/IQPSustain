@@ -59,9 +59,9 @@ public class WaterActivity extends AppCompatActivity {
             tv.setId(Questions.get(i).getId());
 
             EditText et = new EditText(this);
-            SharedPreferences waterPref = getSharedPreferences("water", 0);
-            if(waterPref.getInt(Integer.toString(i), -1) != -1){
-                et.setText(Integer.toString(waterPref.getInt(Integer.toString(i), -1)));
+            SharedPreferences waterPref = getSharedPreferences("waterAns", 0);
+            if(waterPref.getLong(Integer.toString(i), -1) != -1){
+                et.setText(Long.toString(waterPref.getLong(Integer.toString(i), -1)));
             }
             ViewGroup layout = (ViewGroup) findViewById(R.id.water_activity);
             layout.addView(tv);
@@ -133,6 +133,9 @@ public class WaterActivity extends AppCompatActivity {
                     Toast.makeText(this, "You did not select an option for q" + (i + 1), Toast.LENGTH_SHORT).show();
                     return;
                 }
+                SharedPreferences.Editor editor = getSharedPreferences("waterAns", 0).edit();
+                editor.putLong(Integer.toString(i), Math.round(Double.parseDouble(editTextList.get(i).getText().toString())));
+                editor.commit();
                 if(Questions.get(i).isLowGood())
                     rating.add(eval(Double.parseDouble(editTextList.get(i).getText().toString()), Questions.get(i).getMaxScore()));
                 else
