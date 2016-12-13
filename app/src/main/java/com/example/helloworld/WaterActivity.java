@@ -133,7 +133,10 @@ public class WaterActivity extends AppCompatActivity {
                     Toast.makeText(this, "You did not select an option for q" + (i + 1), Toast.LENGTH_SHORT).show();
                     return;
                 }
-                rating.add(eval2(Double.parseDouble(editTextList.get(i).getText().toString()), Questions.get(i).getMaxScore()));
+                if(Questions.get(i).isLowGood())
+                    rating.add(eval(Double.parseDouble(editTextList.get(i).getText().toString()), Questions.get(i).getMaxScore()));
+                else
+                    rating.add(eval2(Double.parseDouble(editTextList.get(i).getText().toString()), Questions.get(i).getMaxScore()));
             }
         }
         else{
@@ -142,7 +145,10 @@ public class WaterActivity extends AppCompatActivity {
                     Toast.makeText(this, "You did not select an option for q" + (i + 1), Toast.LENGTH_SHORT).show();
                     return;
                 }
-                rating.set(i,eval2(Double.parseDouble(editTextList.get(i).getText().toString()), Questions.get(i).getMaxScore()));
+                if(Questions.get(i).isLowGood())
+                    rating.set(i,eval(Double.parseDouble(editTextList.get(i).getText().toString()), Questions.get(i).getMaxScore()));
+                else
+                    rating.set(i,eval2(Double.parseDouble(editTextList.get(i).getText().toString()), Questions.get(i).getMaxScore()));
             }
         }
         intent.putExtra(EXTRA_MESSAGE, "water");
@@ -181,7 +187,17 @@ public class WaterActivity extends AppCompatActivity {
 
         }
     }
-
+//Scores user input based on a max score (low is "good")
+    public int eval(double num, double maxScore) {
+        double score = num / maxScore;
+        if(score <= .3333)
+            return 0;
+        else if (score <= .6666)
+            return 1;
+        else
+            return 2;
+    }
+    //Scores user input based on a max score (high is "good")
     public int eval2(double num, double maxScore) {
         double score = num / maxScore;
         if(score <= .3333)
