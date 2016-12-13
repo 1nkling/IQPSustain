@@ -2,14 +2,10 @@ package com.example.helloworld;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Interpolator;
-import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.helloworld.Struct.Question;
@@ -120,7 +116,7 @@ public class DisplayMessageActivity extends AppCompatActivity {
     }
 
     public void goHome(View view){
-        Intent intent = new Intent(this, Main_NewActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 

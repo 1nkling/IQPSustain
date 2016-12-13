@@ -6,9 +6,7 @@ import android.os.Bundle;
 import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -91,7 +89,7 @@ public class WaterActivity extends AppCompatActivity {
     }
 
     private void openMainNew() {
-        Intent intent = new Intent(this, Main_NewActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 

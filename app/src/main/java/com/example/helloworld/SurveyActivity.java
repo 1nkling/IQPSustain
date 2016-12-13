@@ -6,14 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-
-import com.example.helloworld.R;
-
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
 
 /**
  * Created by peterdebrine on 12/6/16.
@@ -92,7 +84,7 @@ public class SurveyActivity extends AppCompatActivity {
     }
 
     private void openMainNew(){
-        Intent intent = new Intent(this, Main_NewActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 

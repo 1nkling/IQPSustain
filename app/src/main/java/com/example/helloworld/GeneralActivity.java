@@ -24,7 +24,7 @@ public class GeneralActivity extends AppCompatActivity{
     }
 
     private void openMainNew(){
-        Intent intent = new Intent(this, Main_NewActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 }

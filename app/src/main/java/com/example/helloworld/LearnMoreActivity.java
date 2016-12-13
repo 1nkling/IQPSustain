@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 
 /**
  * Created by peterdebrine on 12/6/16.
@@ -27,7 +26,7 @@ public class LearnMoreActivity extends AppCompatActivity{
     }
 
     void openMainNew(){
-        Intent intent = new Intent(this, Main_NewActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 }
