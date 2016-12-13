@@ -75,10 +75,15 @@ public class XMLParser {
                             question.setId(Integer.parseInt(text));
                         } else if (tagname.equalsIgnoreCase("respType")) {
                             question.setRespType(text);
-                        } else if (tagname.equalsIgnoreCase("respNum")) {
-                            question.setRespNum(Integer.parseInt(text));
+                        } else if (tagname.equalsIgnoreCase("maxScore")) {
+                            question.setMaxScore(Integer.parseInt(text));
                         } else if (tagname.equalsIgnoreCase("rec")) {
                             question.setRec(text);
+                        } else if (tagname.equalsIgnoreCase("isLowGood")) {
+                            if (text.equalsIgnoreCase("true"))
+                                question.setLowGood(true);
+                            else
+                                question.setLowGood(false);
                         }
                         break;
 

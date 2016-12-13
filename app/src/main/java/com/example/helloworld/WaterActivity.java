@@ -61,6 +61,10 @@ public class WaterActivity extends AppCompatActivity {
             tv.setId(Questions.get(i).getId());
 
             EditText et = new EditText(this);
+            SharedPreferences waterPref = getSharedPreferences("water", 0);
+            if(waterPref.getInt(Integer.toString(i), -1) != -1){
+                et.setText(Integer.toString(waterPref.getInt(Integer.toString(i), -1)));
+            }
             ViewGroup layout = (ViewGroup) findViewById(R.id.water_activity);
             layout.addView(tv);
             layout.addView(et);
@@ -131,7 +135,7 @@ public class WaterActivity extends AppCompatActivity {
                     Toast.makeText(this, "You did not select an option for q" + (i + 1), Toast.LENGTH_SHORT).show();
                     return;
                 }
-                rating.add(eval2(Integer.parseInt(editTextList.get(i).getText().toString())));
+                rating.add(eval2(Double.parseDouble(editTextList.get(i).getText().toString()), Questions.get(i).getMaxScore()));
             }
         }
         else{
@@ -140,7 +144,7 @@ public class WaterActivity extends AppCompatActivity {
                     Toast.makeText(this, "You did not select an option for q" + (i + 1), Toast.LENGTH_SHORT).show();
                     return;
                 }
-                rating.set(i,eval2(Integer.parseInt(editTextList.get(i).getText().toString())));
+                rating.set(i,eval2(Double.parseDouble(editTextList.get(i).getText().toString()), Questions.get(i).getMaxScore()));
             }
         }
         intent.putExtra(EXTRA_MESSAGE, "water");
@@ -153,7 +157,7 @@ public class WaterActivity extends AppCompatActivity {
         intent.putExtra(EXTRA_MESSAGE, "water");
         SharedPreferences waterPref = getSharedPreferences("water", 0);
         rating.clear();
-        rating.add(waterPref.getInt("0", 0));
+        //rating.add(waterPref.getInt("0", 0));
         for(int x = 0; x < Questions.size(); x++){
             rating.add(waterPref.getInt(Integer.toString(x),-1));
         }
@@ -180,13 +184,14 @@ public class WaterActivity extends AppCompatActivity {
         }
     }
 
-    public int eval2(int num) {
-        if(num < 3)
-            return 0;
-        else if (num < 6)
+    public int eval2(double num, double maxScore) {
+        double score = num / maxScore;
+        if(score <= .3333)
+            return 2;
+        else if (score <= .6666)
             return 1;
         else
-            return 2;
+            return 0;
     }
 
     //Failed parsing attempt

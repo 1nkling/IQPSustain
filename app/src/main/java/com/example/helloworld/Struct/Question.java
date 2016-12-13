@@ -9,8 +9,9 @@ public class Question {
     private String q;
     private int id;
     private String respType;
-    private int respNum;
+    private double maxScore;
     private String rec;
+    private boolean isLowGood;
 
     public String getRespType() {
         return respType;
@@ -23,8 +24,8 @@ public class Question {
         return id;
     }
 
-    public int getRespNum() {
-        return respNum;
+    public double getMaxScore() {
+        return maxScore;
     }
 
     public String getRec() {
@@ -43,8 +44,8 @@ public class Question {
         this.respType = respType;
     }
 
-    public void setRespNum(int respNum) {
-        this.respNum = respNum;
+    public void setMaxScore(int maxScore) {
+        this.maxScore = maxScore;
     }
 
     public void setRec(String rec) {
@@ -52,6 +53,14 @@ public class Question {
     }
 
     public String toString() {
-        return q + respType + respNum + rec;
+        return q + respType + maxScore + rec;
+    }
+
+    public boolean isLowGood() {
+        return isLowGood;
+    }
+
+    public void setLowGood(boolean lowGood) {
+        isLowGood = lowGood;
     }
 }

@@ -4,14 +4,14 @@
         <q> What's up </q>
         <id> 1 </id>
         <respType> open </respType>
-        <respNum> 0 </respNum>
+        <maxScore> 0 </maxScore>
         <rec> Do better </rec>
     </question>
     <question>
         <q> What's up </q>
         <id> 2 </id>
         <respType> open </respType>
-        <respNum> 0 </respNum>
+        <maxScore> 0 </maxScore>
         <rec> Do better </rec>
     </question>
     <question>

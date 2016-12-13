@@ -74,12 +74,12 @@ public class DisplayMessageActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        /*TextView textView = new TextView(this);
+        TextView textView = new TextView(this);
         textView.setText("");
         for(int i: rating){
             textView.setText(textView.getText() + "\n" + Integer.toString(i));
         }
-        layout.addView(textView);*/
+        layout.addView(textView);
 
         for(int i = 0; i < Questions.size() ; i++) {
             TextView tv = new TextView(this);
