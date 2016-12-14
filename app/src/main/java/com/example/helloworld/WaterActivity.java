@@ -37,11 +37,18 @@ public class WaterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_water);
+
         //TextView textView = (TextView) findViewById(R.id.text);
         //parses xml file with questions inside
         try {
+            Intent intent = getIntent();
             XMLParser parser = new XMLParser();
-            Questions = parser.parse(getApplicationContext().getAssets().open("questions.xml"));
+            if(intent.getStringExtra(WaterActivity.EXTRA_MESSAGE).matches("general"))
+                Questions = parser.parse(getApplicationContext().getAssets().open("questions.xml"));
+            if(intent.getStringExtra(WaterActivity.EXTRA_MESSAGE).matches("water"))
+                Questions = parser.parse(getApplicationContext().getAssets().open("questions.xml"));
+            if(intent.getStringExtra(WaterActivity.EXTRA_MESSAGE).matches("recycling"))
+                Questions = parser.parse(getApplicationContext().getAssets().open("questions.xml"));
 /*
             String text="";
             for(Question question:Questions) {
@@ -77,7 +84,6 @@ public class WaterActivity extends AppCompatActivity {
         for(int x = 0; x < waterPref.getInt("0", 0); x++){
             rating.add(waterPref.getInt(Integer.toString(x+1),-1));
         }
-<<<<<<< HEAD
         */
 
         View back = findViewById(R.id.main);

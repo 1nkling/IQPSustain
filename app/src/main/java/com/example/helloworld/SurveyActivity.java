@@ -12,6 +12,7 @@ import android.widget.Button;
  */
 
 public class SurveyActivity extends AppCompatActivity {
+    public final static String EXTRA_MESSAGE = "";
     ViewGroup dimensions;
     View back;
 
@@ -70,12 +71,17 @@ public class SurveyActivity extends AppCompatActivity {
         Intent intent = null;
         if (i == 0){
             intent = new Intent(this, GeneralActivity.class);
+            intent.putExtra(EXTRA_MESSAGE, "general");
         }
         if (i == 1){
             intent = new Intent(this, WaterActivity.class);
+            intent.putExtra(EXTRA_MESSAGE, "water");
+
         }
         if (i == 2){
             intent = new Intent(this, RecyclingActivity.class);
+            intent.putExtra(EXTRA_MESSAGE, "recycling");
+
         }
         if (intent!= null){
             startActivity(intent);
