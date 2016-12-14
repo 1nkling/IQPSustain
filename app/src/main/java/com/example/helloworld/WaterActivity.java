@@ -43,11 +43,11 @@ public class WaterActivity extends AppCompatActivity {
         try {
             Intent intent = getIntent();
             XMLParser parser = new XMLParser();
-            if(intent.getStringExtra(WaterActivity.EXTRA_MESSAGE).matches("general"))
+            if(intent.getStringExtra(SurveyActivity.EXTRA_MESSAGE).matches("general"))
                 Questions = parser.parse(getApplicationContext().getAssets().open("questions.xml"));
-            if(intent.getStringExtra(WaterActivity.EXTRA_MESSAGE).matches("water"))
+            if(intent.getStringExtra(SurveyActivity.EXTRA_MESSAGE).matches("water"))
                 Questions = parser.parse(getApplicationContext().getAssets().open("questions.xml"));
-            if(intent.getStringExtra(WaterActivity.EXTRA_MESSAGE).matches("recycling"))
+            if(intent.getStringExtra(SurveyActivity.EXTRA_MESSAGE).matches("recycling"))
                 Questions = parser.parse(getApplicationContext().getAssets().open("questions.xml"));
 /*
             String text="";
