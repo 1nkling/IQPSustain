@@ -10,7 +10,11 @@ import android.widget.Button;
 
 import com.example.helloworld.MainActivity;
 import com.example.helloworld.R;
+import com.example.helloworld.Struct.Question;
 import com.example.helloworld.SurveyActivity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by peterdebrine on 12/15/16.
@@ -23,6 +27,7 @@ public abstract class AbstractSurvey extends AppCompatActivity {
     ViewGroup content;
     Button submit;
     Button status;
+    List<Question> questions;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -56,6 +61,10 @@ public abstract class AbstractSurvey extends AppCompatActivity {
     private void openMainNew() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+    }
+
+    public void populate() {
+
     }
 
 
