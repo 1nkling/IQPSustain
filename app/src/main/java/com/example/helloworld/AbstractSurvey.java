@@ -83,9 +83,9 @@ public abstract class AbstractSurvey extends AppCompatActivity {
                 if(waterPref.getLong(Integer.toString(i), -1) != -1){
                     et.setText(Long.toString(waterPref.getLong(Integer.toString(i), -1)));
                 }
-                ViewGroup layout = (ViewGroup) findViewById(R.id.water_activity);
-                layout.addView(tv);
-                layout.addView(et);
+                content = (ViewGroup) findViewById(R.id.content);
+                content.addView(tv);
+                content.addView(et);
                 editTextList.add(et);
 
             }
