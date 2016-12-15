@@ -62,10 +62,12 @@ public class WaterActivity extends AppCompatActivity {
         }
         //dynamically generates Views based on parsed xml file
         for(int i = 0; i < Questions.size() ; i++) {
+            //sets the values for question textView.
             TextView tv = new TextView(this);
             tv.setText(Questions.get(i).getQ());
             tv.setId(Questions.get(i).getId());
 
+            //sets the values for response EditText.
             EditText et = new EditText(this);
             SharedPreferences waterPref = getSharedPreferences("waterAns", 0);
             if(waterPref.getLong(Integer.toString(i), -1) != -1){
@@ -139,6 +141,11 @@ public class WaterActivity extends AppCompatActivity {
             for (int i = 0; i < editTextList.size(); i++) {
                 if((editTextList.get(i).getText().toString()).matches("")){
                     Toast.makeText(this, "You did not select an option for q" + (i + 1), Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if(isAlpha(editTextList.get(i).getText().toString())){
+                    Toast.makeText(this, "You entered an invalid response to q" + (i + 1), Toast.LENGTH_SHORT).show();
                     return;
                 }
                 SharedPreferences.Editor editor = getSharedPreferences("waterAns", 0).edit();
@@ -259,4 +266,15 @@ public class WaterActivity extends AppCompatActivity {
         //dynamicTextView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         tv.setText(a + b + c + d + " hello");
     }
+
+    public boolean isAlpha(String s) {
+        char[] chars = s.toCharArray();
+        for(char c:chars){
+            if(Character.isLetter(c)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
