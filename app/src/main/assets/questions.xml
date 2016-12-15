@@ -6,6 +6,7 @@
         <respType> open </respType>
         <maxScore>30</maxScore>
         <isLowGood>true</isLowGood>
+        <dimension>water</dimension>
         <rec> Try to take the shorter showers for saving water. Don’t leave the water running unnecessarily; it can use up to 5 gallon per minute! </rec>
     </question>
     <question>
@@ -14,6 +15,7 @@
         <respType> open </respType>
         <maxScore>10</maxScore>
         <isLowGood>false</isLowGood>
+        <dimension>water</dimension>
         <rec> According to a study at the University of Bonn in Germany, dishwashers use half of energy, one-six of the water, and less soap than handwashing.  Try to use the machine for big/medium loads!</rec>
     </question>
     <question>
@@ -22,6 +24,7 @@
         <respType> open </respType>
         <maxScore>1</maxScore>
         <isLowGood>false</isLowGood>
+        <dimension>water</dimension>
         <rec>  Keep an eye out for front-loading machines; they use 40-75% less water than top-loaders!</rec>
     </question>
     <question>
@@ -30,6 +33,7 @@
         <respType> open </respType>
         <maxScore>1</maxScore>
         <isLowGood>false</isLowGood>
+        <dimension>water</dimension>
         <rec>  Keep an eye out for front-loading machines; they use 40-75% less water than top-loaders!</rec>
     </question>
 </questions>
