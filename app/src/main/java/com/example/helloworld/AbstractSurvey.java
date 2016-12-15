@@ -1,3 +1,5 @@
+package com.example.helloworld;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -55,7 +57,7 @@ public abstract class AbstractSurvey extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
-    
+
 
 
 }

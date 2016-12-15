@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class RecyclingActivity extends AppCompatActivity {
+public class RecyclingActivity extends AbstractSurvey {
 
     public final static String EXTRA_MESSAGE = "";
     ArrayList<Integer> rating = new ArrayList<Integer>();
@@ -28,6 +28,11 @@ public class RecyclingActivity extends AppCompatActivity {
                 openMainNew();
             }
         });
+    }
+
+    @Override
+    protected void init() {
+
     }
 
     private void openMainNew() {
