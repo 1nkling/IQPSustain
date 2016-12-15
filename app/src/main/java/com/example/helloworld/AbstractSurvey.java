@@ -63,12 +63,13 @@ public abstract class AbstractSurvey extends AppCompatActivity {
 
     protected abstract void init();
 
-    //returns to home menu
+    //returns to the home menu
     private void openMainNew() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
+    // Populates this activity with its respective questions
     public void populate() {
         try{
             SurveyMap map = new SurveyMap(getApplicationContext());
