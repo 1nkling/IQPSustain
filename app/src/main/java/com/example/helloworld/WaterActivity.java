@@ -36,7 +36,7 @@ public class WaterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_water);
+        setContentView(R.layout.activity_abstractSurvey);
 
         //TextView textView = (TextView) findViewById(R.id.text);
         //parses xml file with questions inside

@@ -12,6 +12,7 @@ public class Question {
     private double maxScore;
     private String rec;
     private boolean isLowGood;
+    private String dimension;
 
     public String getRespType() {
         return respType;
@@ -62,5 +63,13 @@ public class Question {
 
     public void setLowGood(boolean lowGood) {
         isLowGood = lowGood;
+    }
+
+    public void setDimension(String dim){
+        this.dimension = dim;
+    }
+
+    public String getDimension(){
+        return this.dimension;
     }
 }
