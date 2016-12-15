@@ -36,4 +36,8 @@ public class SurveyMap {
 
     }
 
+    public List<Question> getQuestions(String name){
+        return map.get(name);
+    }
+
 }
