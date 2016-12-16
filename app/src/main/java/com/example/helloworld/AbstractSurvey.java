@@ -38,7 +38,7 @@ public abstract class AbstractSurvey extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_abstractSurvey);
+        setContentView(R.layout.activity_abstract_survey);
         back = (Button) findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
