@@ -28,22 +28,28 @@
             android:textAlignment="center" />
 
         <Button
-            android:text="Begin the Survey!"
+            android:text="Help"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/begin" />
+            android:id="@+id/learn"
+            android:padding="30dp"
+            android:backgroundTint="@android:color/holo_red_light" />
 
         <Button
             android:text="Sustainability Tips"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/tips" />
+            android:id="@+id/tips"
+            android:padding="30dp"
+            android:backgroundTint="@android:color/holo_orange_light" />
 
         <Button
-            android:text="Help"
+            android:text="Begin the Survey!"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/learn" />
+            android:id="@+id/begin"
+            android:padding="30dp"
+            android:backgroundTint="@android:color/holo_green_dark" />
 
     </LinearLayout>
 </RelativeLayout>
