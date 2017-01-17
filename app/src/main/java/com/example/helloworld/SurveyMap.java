@@ -15,8 +15,8 @@ import java.util.List;
  */
 
 public class SurveyMap {
-    private HashMap<String, List<Question>> map;
-    private List<Question> questions;
+    private HashMap<String, ArrayList<Question>> map;
+    private ArrayList<Question> questions;
 
 
     SurveyMap(Context context) throws IOException {
@@ -36,7 +36,7 @@ public class SurveyMap {
 
     }
 
-    public List<Question> getQuestions(String name){
+    public ArrayList<Question> getQuestions(String name){
         return map.get(name);
     }
 

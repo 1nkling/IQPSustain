@@ -33,7 +33,7 @@ public class XMLParser {
         return questions;
     }
 
-    public List<Question> parse(InputStream is) {
+    public ArrayList<Question> parse(InputStream is) {
         XmlPullParserFactory factory = null;
         XmlPullParser parser = null;
         try {
@@ -71,6 +71,8 @@ public class XMLParser {
                         }
                          else if (tagname.equalsIgnoreCase("q")) {
                             question.setQ(text);
+                        } else if (tagname.equalsIgnoreCase("dimension")) {
+                            question.setDimension(text);
                         } else if (tagname.equalsIgnoreCase("id")) {
                             question.setId(Integer.parseInt(text));
                         } else if (tagname.equalsIgnoreCase("respType")) {

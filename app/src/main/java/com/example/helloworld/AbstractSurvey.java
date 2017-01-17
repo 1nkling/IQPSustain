@@ -31,7 +31,7 @@ public abstract class AbstractSurvey extends AppCompatActivity {
     ViewGroup content;
     Button submit;
     Button status;
-    List<Question> questions;
+    ArrayList<Question> questions = new ArrayList<Question>();
     List<EditText> editTextList = new ArrayList<EditText>();
     private String name;
 
@@ -39,7 +39,13 @@ public abstract class AbstractSurvey extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_abstract_survey);
+        this.name = setName();
+        TextView dimName = (TextView) findViewById(R.id.Name);
+        dimName.setText(this.name);
+        content = (ViewGroup) findViewById(R.id.content);
         back = (Button) findViewById(R.id.back);
+        submit = (Button) findViewById(R.id.send);
+        status = (Button) findViewById(R.id.status);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,12 +62,23 @@ public abstract class AbstractSurvey extends AppCompatActivity {
         init();
     }
 
+    protected String setName(){
+        return getIntent().getStringExtra(SurveyActivity.EXTRA_MESSAGE);
+    }
+
     protected void goBack(){
+        this.saveAnswers();
         Intent intent = new Intent(this, SurveyActivity.class);
         startActivity(intent);
     }
 
-    protected abstract void init();
+    private void saveAnswers() {
+
+    }
+
+    protected void init(){
+        populate();
+    }
 
     //returns to the home menu
     private void openMainNew() {

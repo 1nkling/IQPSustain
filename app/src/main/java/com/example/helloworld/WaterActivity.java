@@ -25,15 +25,13 @@ import java.util.List;
 //adaptiveView, NVC
 
 
-public class WaterActivity extends AppCompatActivity {
+public class WaterActivity extends AbstractSurvey {
     public final static String EXTRA_MESSAGE = "1";
     public final static String LIST = "";
     ArrayList<Integer> rating = new ArrayList<Integer>();
     int i = -1;
-    List<Question> Questions = null;
-    List<EditText> editTextList = new ArrayList<EditText>();
 
-    @Override
+    /*@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_abstract_survey);
@@ -49,13 +47,13 @@ public class WaterActivity extends AppCompatActivity {
                 Questions = parser.parse(getApplicationContext().getAssets().open("questions.xml"));
             if(intent.getStringExtra(SurveyActivity.EXTRA_MESSAGE).matches("recycling"))
                 Questions = parser.parse(getApplicationContext().getAssets().open("questions.xml"));
-/*
+*//*
             String text="";
             for(Question question:Questions) {
                 text+= "q : "+question.getQ()+" respType : "+question.getRespNum()+" Rec : "+question.getRec()+"\n";
             }
 
-            textView.setText(text);*/
+            textView.setText(text);*//*
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -80,13 +78,13 @@ public class WaterActivity extends AppCompatActivity {
 
         }
 
-        /*SharedPreferences waterPref = getSharedPreferences("water", 0);
+        *//*SharedPreferences waterPref = getSharedPreferences("water", 0);
         rating.clear();
         rating.add(waterPref.getInt("0", 0));
         for(int x = 0; x < waterPref.getInt("0", 0); x++){
             rating.add(waterPref.getInt(Integer.toString(x+1),-1));
         }
-        */
+        *//*
 
         View back = findViewById(R.id.main);
         back.setOnClickListener(new View.OnClickListener() {
@@ -101,7 +99,7 @@ public class WaterActivity extends AppCompatActivity {
     private void openMainNew() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-    }
+    }*/
     //passes responses to a display activity and saves them to memory
     public void sendMessage(View view) {
         EditText editText = (EditText) findViewById(R.id.edit_message);
@@ -137,7 +135,7 @@ public class WaterActivity extends AppCompatActivity {
             rating.set(2, eval2(num2));
             rating.set(3, i);
         }*/
-        if(rating.size() < Questions.size()) {
+        if(rating.size() < questions.size()) {
             for (int i = 0; i < editTextList.size(); i++) {
                 if((editTextList.get(i).getText().toString()).matches("")){
                     Toast.makeText(this, "You did not select an option for q" + (i + 1), Toast.LENGTH_SHORT).show();
@@ -151,10 +149,10 @@ public class WaterActivity extends AppCompatActivity {
                 SharedPreferences.Editor editor = getSharedPreferences("waterAns", 0).edit();
                 editor.putLong(Integer.toString(i), Math.round(Double.parseDouble(editTextList.get(i).getText().toString())));
                 editor.commit();
-                if(Questions.get(i).isLowGood())
-                    rating.add(eval(Double.parseDouble(editTextList.get(i).getText().toString()), Questions.get(i).getMaxScore()));
+                if(questions.get(i).isLowGood())
+                    rating.add(eval(Double.parseDouble(editTextList.get(i).getText().toString()), questions.get(i).getMaxScore()));
                 else
-                    rating.add(eval2(Double.parseDouble(editTextList.get(i).getText().toString()), Questions.get(i).getMaxScore()));
+                    rating.add(eval2(Double.parseDouble(editTextList.get(i).getText().toString()), questions.get(i).getMaxScore()));
             }
         }
         else{
@@ -163,10 +161,10 @@ public class WaterActivity extends AppCompatActivity {
                     Toast.makeText(this, "You did not select an option for q" + (i + 1), Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if(Questions.get(i).isLowGood())
-                    rating.set(i,eval(Double.parseDouble(editTextList.get(i).getText().toString()), Questions.get(i).getMaxScore()));
+                if(questions.get(i).isLowGood())
+                    rating.set(i,eval(Double.parseDouble(editTextList.get(i).getText().toString()), questions.get(i).getMaxScore()));
                 else
-                    rating.set(i,eval2(Double.parseDouble(editTextList.get(i).getText().toString()), Questions.get(i).getMaxScore()));
+                    rating.set(i,eval2(Double.parseDouble(editTextList.get(i).getText().toString()), questions.get(i).getMaxScore()));
             }
         }
         intent.putExtra(EXTRA_MESSAGE, "water");
@@ -181,7 +179,7 @@ public class WaterActivity extends AppCompatActivity {
         SharedPreferences waterPref = getSharedPreferences("water", 0);
         rating.clear();
         //rating.add(waterPref.getInt("0", 0));
-        for(int x = 0; x < Questions.size(); x++){
+        for(int x = 0; x < questions.size(); x++){
             rating.add(waterPref.getInt(Integer.toString(x),-1));
         }
         startActivity(intent);
@@ -277,4 +275,8 @@ public class WaterActivity extends AppCompatActivity {
         return false;
     }
 
+   /* @Override
+    protected String setName() {
+        return "water";
+    }*/
 }

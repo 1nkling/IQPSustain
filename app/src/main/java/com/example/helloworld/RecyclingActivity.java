@@ -15,7 +15,7 @@ public class RecyclingActivity extends AbstractSurvey {
     public final static String EXTRA_MESSAGE = "";
     ArrayList<Integer> rating = new ArrayList<Integer>();
     int i = -1;
-    @Override
+/*    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycling);
@@ -38,7 +38,7 @@ public class RecyclingActivity extends AbstractSurvey {
     private void openMainNew() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-    }
+    }*/
 
     public void sendMessage(View view) {
         if (i == -1) {

@@ -36,4 +36,22 @@
         <dimension>water</dimension>
         <rec>  Keep an eye out for front-loading machines; they use 40-75% less water than top-loaders!</rec>
     </question>
+    <question>
+        <q> Do you recycle?</q>
+        <id>4</id>
+        <respType> open </respType>
+        <maxScore>1</maxScore>
+        <isLowGood>false</isLowGood>
+        <dimension>recycling</dimension>
+        <rec>  Reduce, reuse and recycle! Cha!</rec>
+    </question>
+    <question>
+        <q> How educated are you in terms of sustainability?</q>
+        <id>3</id>
+        <respType> open </respType>
+        <maxScore>1</maxScore>
+        <isLowGood>false</isLowGood>
+        <dimension>general</dimension>
+        <rec>  Use this app!</rec>
+    </question>
 </questions>

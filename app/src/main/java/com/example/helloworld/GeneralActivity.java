@@ -9,7 +9,8 @@ import android.view.View;
 /**
  * Created by peterdebrine on 12/6/16.
  */
-public class GeneralActivity extends AppCompatActivity{
+public class GeneralActivity extends AbstractSurvey{
+    /*
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,4 +28,5 @@ public class GeneralActivity extends AppCompatActivity{
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+    */
 }

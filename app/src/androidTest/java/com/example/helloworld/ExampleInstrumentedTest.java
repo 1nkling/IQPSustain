@@ -23,4 +23,12 @@ public class ExampleInstrumentedTest {
 
         assertEquals("com.example.helloworld", appContext.getPackageName());
     }
+
+    @Test
+    public void surveyMapTest() throws Exception {
+        SurveyMap s = new SurveyMap(InstrumentationRegistry.getTargetContext());
+        assertNotNull(s.getQuestions("water"));
+        assertEquals(s.getQuestions("water").get(0).getDimension(), "water");
+        assertEquals(s.getQuestions("water").get(0).getId(), 1);
+    }
 }
