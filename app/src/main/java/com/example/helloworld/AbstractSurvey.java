@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.helloworld.MainActivity;
 import com.example.helloworld.R;
@@ -37,6 +38,7 @@ public abstract class AbstractSurvey extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        // Sets up the screen by initializing and setting the on click listeners, then calls init
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_abstract_survey);
         this.name = setName();
@@ -77,6 +79,7 @@ public abstract class AbstractSurvey extends AppCompatActivity {
     }
 
     protected void init(){
+        // Currently only calls this function but might do more or move stuff here not sure what I want to do
         populate();
     }
 
@@ -89,8 +92,10 @@ public abstract class AbstractSurvey extends AppCompatActivity {
     // Populates this activity with its respective questions
     public void populate() {
         try{
+            // Gets a survey map (aka its list of questions)
             SurveyMap map = new SurveyMap(getApplicationContext());
             questions = map.getQuestions(this.name);
+            // Puts the questions on the screen and their respective edit texts
             for(int i = 0; i < questions.size() ; i++) {
                 TextView tv = new TextView(this);
                 tv.setText(questions.get(i).getQ());
@@ -111,6 +116,13 @@ public abstract class AbstractSurvey extends AppCompatActivity {
         }
         catch(IOException ie) {
             ie.printStackTrace();
+
+        }
+        catch (RuntimeException re){
+            Toast t = new Toast(getApplicationContext());
+            t.setText("Dimension does not contain questions");
+            t.show();
+            openMainNew();
         }
 
     }

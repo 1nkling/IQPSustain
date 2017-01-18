@@ -36,8 +36,12 @@ public class SurveyMap {
 
     }
 
-    public ArrayList<Question> getQuestions(String name){
-        return map.get(name);
+    public ArrayList<Question> getQuestions(String name) throws RuntimeException {
+        ArrayList<Question> answer = map.get(name);
+        if (answer != null) {
+            return answer;
+        }
+        else throw new RuntimeException();
     }
 
 }
