@@ -6,6 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Created by peterdebrine on 12/6/16.
@@ -18,12 +22,19 @@ public class SurveyActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_survey);
-        init();
+        try {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_survey);
+            init();
+        }
+        catch(IOException ie){
+            Toast t = new Toast(getApplicationContext());
+            t.setText("Could not read dimensions; fatal error");
+            openMainNew();
+        }
     }
 
-    private void init() {
+    private void init() throws IOException {
         dimensions = (ViewGroup) findViewById(R.id.dimensions);
         back = findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
@@ -33,6 +44,11 @@ public class SurveyActivity extends AppCompatActivity {
             }
         });
         Button general = new Button(getApplicationContext());
+        SurveyMap m = new SurveyMap(getApplicationContext());
+        ArrayList<String> dims = m.getDims();
+        for (int i = 0; i < dims.size(); i++){
+            // Dynamically add the dimensions as opposed to hard coding them in
+        }
         general.setText("General");
         general.setClickable(true);
         general.setTextSize(26);

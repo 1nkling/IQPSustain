@@ -8,7 +8,9 @@ import com.example.helloworld.XMLParser.XMLParser;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by peterdebrine on 12/15/16.
@@ -42,6 +44,17 @@ public class SurveyMap {
             return answer;
         }
         else throw new RuntimeException();
+    }
+
+
+    public ArrayList<String> getDims(){
+        ArrayList<String> dims = new ArrayList<String>();
+        for (int i = 0; i < questions.size(); i++){
+            if (!(dims.contains(questions.get(i).getDimension()))) {
+                dims.add(questions.get(i).getDimension());
+            }
+        }
+        return dims;
     }
 
 }
