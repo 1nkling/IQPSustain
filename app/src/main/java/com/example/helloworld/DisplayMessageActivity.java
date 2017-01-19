@@ -14,7 +14,7 @@ import com.example.helloworld.XMLParser.XMLParser;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
+// Toast of percentage complete
 public class DisplayMessageActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
