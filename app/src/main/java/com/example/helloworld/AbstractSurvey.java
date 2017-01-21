@@ -25,7 +25,7 @@ import java.util.List;
  * Created by peterdebrine on 12/15/16.
  */
 
-public abstract class AbstractSurvey extends AppCompatActivity {
+public class AbstractSurvey extends AppCompatActivity {
 
     Button back;
     Button main;
@@ -33,8 +33,8 @@ public abstract class AbstractSurvey extends AppCompatActivity {
     Button submit;
     Button status;
     ArrayList<Question> questions = new ArrayList<Question>();
-    List<EditText> editTextList = new ArrayList<EditText>();
-    private String name;
+    List<EditText> editTextList = new ArrayList<EditText>(); // Their answers
+    private String name; // Its dimension
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -74,6 +74,7 @@ public abstract class AbstractSurvey extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //TODO
     private void saveAnswers() {
 
     }

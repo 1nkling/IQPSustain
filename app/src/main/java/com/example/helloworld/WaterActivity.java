@@ -102,8 +102,8 @@ public class WaterActivity extends AbstractSurvey {
     }*/
     //passes responses to a display activity and saves them to memory
     public void sendMessage(View view) {
-        EditText editText = (EditText) findViewById(R.id.edit_message);
-        EditText editText2 = (EditText) findViewById(R.id.edit_message2);
+        //EditText editText = (EditText) findViewById(R.id.edit_message);
+        //EditText editText2 = (EditText) findViewById(R.id.edit_message2);
         /*if((editText.getText().toString()).matches("")){
             Toast.makeText(this, "You did not select an option for q1", Toast.LENGTH_SHORT).show();
             return;

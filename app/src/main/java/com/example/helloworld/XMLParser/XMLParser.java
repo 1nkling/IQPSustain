@@ -1,6 +1,8 @@
 package com.example.helloworld.XMLParser;
 
+import android.content.Context;
 import android.util.Log;
+import android.widget.EditText;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -10,6 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 
 import com.example.helloworld.Struct.Question;
@@ -102,5 +105,59 @@ public class XMLParser {
         }
 
         return questions;
+    }
+
+    public HashMap<String, ArrayList<EditText>> parse2(InputStream is, Context context){
+        HashMap<String, ArrayList<EditText>> map = new HashMap<>();
+        XmlPullParserFactory factory;
+        XmlPullParser parser;
+        try {
+            factory = XmlPullParserFactory.newInstance();
+            factory.setNamespaceAware(true);
+            parser = factory.newPullParser();
+
+            parser.setInput(is, null);
+
+            int eventType = parser.getEventType();
+            String currentDim = "";
+            while (eventType != XmlPullParser.END_DOCUMENT) {
+                String tagname;
+                switch (eventType) {
+                    case XmlPullParser.START_DOCUMENT:
+                        break;
+                    case XmlPullParser.START_TAG:
+                        break;
+
+                    case XmlPullParser.TEXT:
+                        text = parser.getText();
+                        break;
+
+                    case XmlPullParser.END_TAG:
+                        ArrayList<EditText> temp = new ArrayList<>();
+                        tagname = parser.getName();
+                        if (tagname.equalsIgnoreCase("dimension")) {
+                            map.put(text, temp);
+                            currentDim = text;
+                        }
+                        else if (currentDim != ""){
+                            EditText txt = new EditText(context);
+                            txt.setText(text);
+                            map.get(currentDim).add(txt);
+                        }
+
+                        break;
+
+                    default:
+                        break;
+                }
+                eventType = parser.next();
+            }
+
+        } catch (XmlPullParserException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return map;
     }
 }

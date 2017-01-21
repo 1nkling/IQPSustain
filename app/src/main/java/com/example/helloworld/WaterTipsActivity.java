@@ -39,7 +39,7 @@ public class WaterTipsActivity extends AppCompatActivity {
         TextView tip2 = new TextView(this);
         tip2.setText("Watering your yard at night saves lots of water otherwise lsot to evaporation");
         tip1.setTextSize(20);
-        tip2.setTextSize(20);
+        tip2.setTextSize(2);
         content.addView(tip1);
         content.addView(tip2);
     }
