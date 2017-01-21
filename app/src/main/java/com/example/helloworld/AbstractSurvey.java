@@ -33,7 +33,7 @@ public class AbstractSurvey extends AppCompatActivity {
     Button submit;
     Button status;
     ArrayList<Question> questions = new ArrayList<Question>();
-    List<EditText> editTextList = new ArrayList<EditText>();
+    List<EditText> editTextList = new ArrayList<EditText>(); // Their answers
     private String name; // Its dimension
 
     @Override

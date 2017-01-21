@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import android.graphics.Color;
 
 /**
  * Created by peterdebrine on 12/6/16.
@@ -50,6 +51,7 @@ public class SurveyActivity extends AppCompatActivity {
             temp.setText(dims.get(i));
             temp.setClickable(true);
             temp.setTextSize(26);
+            color(temp, i);
             temp.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -60,6 +62,20 @@ public class SurveyActivity extends AppCompatActivity {
             dimensions.addView(temp);
         }
         }
+
+    private void color(Button temp, int i) {
+        if (i % 3 == 0){
+            temp.setBackgroundColor(Color.RED);
+        }
+
+        else if (i % 3 == 1){
+            temp.setBackgroundColor(Color.YELLOW);
+        }
+
+        else{
+            temp.setBackgroundColor(Color.GREEN);
+        }
+    }
 
     private void openSurvey(String name) {
         Intent intent = new Intent(getApplicationContext(), AbstractSurvey.class);
