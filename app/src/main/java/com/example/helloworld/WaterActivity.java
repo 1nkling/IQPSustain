@@ -43,9 +43,9 @@ public class WaterActivity extends AbstractSurvey {
             XMLParser parser = new XMLParser();
             if(intent.getStringExtra(SurveyActivity.EXTRA_MESSAGE).matches("general"))
                 Questions = parser.parse(getApplicationContext().getAssets().open("questions.xml"));
-            if(intent.getStringExtra(SurveyActivity.EXTRA_MESSAGE).matches("water"))
+            else if(intent.getStringExtra(SurveyActivity.EXTRA_MESSAGE).matches("water"))
                 Questions = parser.parse(getApplicationContext().getAssets().open("questions.xml"));
-            if(intent.getStringExtra(SurveyActivity.EXTRA_MESSAGE).matches("recycling"))
+            else if(intent.getStringExtra(SurveyActivity.EXTRA_MESSAGE).matches("recycling"))
                 Questions = parser.parse(getApplicationContext().getAssets().open("questions.xml"));
 *//*
             String text="";
