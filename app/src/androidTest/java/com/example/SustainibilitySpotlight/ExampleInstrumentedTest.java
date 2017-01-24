@@ -1,4 +1,4 @@
-package com.example.helloworld;
+package com.example.SustainibilitySpotlight;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,7 +21,7 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.helloworld", appContext.getPackageName());
+        assertEquals("com.example.SustainablitytSpotlight", appContext.getPackageName());
     }
 
     @Test

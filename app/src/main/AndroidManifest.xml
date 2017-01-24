@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.helloworld">
+    package="com.example.SustainibilitySpotlight">
 
     <application
         android:allowBackup="true"
@@ -8,56 +8,56 @@
         android:label="The Sustainability Spotlight"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".WaterActivity"></activity>
-        <activity android:name=".DisplayMessageActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name="com.example.SustainibilitySpotlight.WaterActivity"></activity>
+        <activity android:name="com.example.SustainibilitySpotlight.DisplayMessageActivity" />
+        <activity android:name="com.example.SustainibilitySpotlight.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity android:name=".RecyclingActivity" />
-        <activity android:name=".SurveyActivity">
+        <activity android:name="com.example.SustainibilitySpotlight.RecyclingActivity" />
+        <activity android:name="com.example.SustainibilitySpotlight.SurveyActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity android:name=".LearnMoreActivity">
+        <activity android:name="com.example.SustainibilitySpotlight.LearnMoreActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity android:name=".TipsActivity">
+        <activity android:name="com.example.SustainibilitySpotlight.TipsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity android:name=".GeneralActivity">
+        <activity android:name="com.example.SustainibilitySpotlight.GeneralActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity android:name=".GeneralTipsActivity">
+        <activity android:name="com.example.SustainibilitySpotlight.GeneralTipsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity android:name=".WaterTipsActivity">
+        <activity android:name="com.example.SustainibilitySpotlight.WaterTipsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity android:name=".RecyclingTipsActivity">
+        <activity android:name="com.example.SustainibilitySpotlight.RecyclingTipsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity android:name=".AbstractSurvey">
+        <activity android:name="com.example.SustainibilitySpotlight.AbstractSurvey">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".SplashActivity"
+            android:name="com.example.SustainibilitySpotlight.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

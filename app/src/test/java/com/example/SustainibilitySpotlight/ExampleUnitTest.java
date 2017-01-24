@@ -1,4 +1,4 @@
-package com.example.helloworld;
+package com.example.SustainibilitySpotlight;
 
 import org.junit.Test;
 

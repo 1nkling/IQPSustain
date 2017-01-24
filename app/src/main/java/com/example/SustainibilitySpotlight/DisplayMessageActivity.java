@@ -1,4 +1,4 @@
-package com.example.helloworld;
+package com.example.SustainibilitySpotlight;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,8 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.helloworld.Struct.Question;
-import com.example.helloworld.XMLParser.XMLParser;
+import com.example.SustainibilitySpotlight.Struct.Question;
+import com.example.SustainibilitySpotlight.XML.XMLParser;
 
 import java.io.IOException;
 import java.util.ArrayList;

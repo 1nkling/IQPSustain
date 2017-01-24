@@ -1,23 +1,25 @@
-package com.example.helloworld.XMLParser;
+package com.example.SustainibilitySpotlight.XML;
 
 import android.content.Context;
+import android.content.IntentFilter;
 import android.util.Log;
-import android.widget.EditText;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InterruptedIOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Scanner;
 
-import com.example.helloworld.Struct.Question;
-
-import static com.example.helloworld.R.id.list;
+import com.example.SustainibilitySpotlight.Response;
+import com.example.SustainibilitySpotlight.Struct.Question;
 
 /**
  * Created by danso on 12/10/2016.
@@ -107,57 +109,32 @@ public class XMLParser {
         return questions;
     }
 
-    public HashMap<String, ArrayList<EditText>> parse2(InputStream is, Context context){
-        HashMap<String, ArrayList<EditText>> map = new HashMap<>();
-        XmlPullParserFactory factory;
-        XmlPullParser parser;
-        try {
-            factory = XmlPullParserFactory.newInstance();
-            factory.setNamespaceAware(true);
-            parser = factory.newPullParser();
+    public HashMap<String, ArrayList<Response>> parse2(File src, Context context) throws FileNotFoundException {
+        HashMap<String, ArrayList<Response>> map = new HashMap<>();
 
-            parser.setInput(is, null);
-
-            int eventType = parser.getEventType();
-            String currentDim = "";
-            while (eventType != XmlPullParser.END_DOCUMENT) {
-                String tagname;
-                switch (eventType) {
-                    case XmlPullParser.START_DOCUMENT:
-                        break;
-                    case XmlPullParser.START_TAG:
-                        break;
-
-                    case XmlPullParser.TEXT:
-                        text = parser.getText();
-                        break;
-
-                    case XmlPullParser.END_TAG:
-                        ArrayList<EditText> temp = new ArrayList<>();
-                        tagname = parser.getName();
-                        if (tagname.equalsIgnoreCase("dimension")) {
-                            map.put(text, temp);
-                            currentDim = text;
-                        }
-                        else if (currentDim != ""){
-                            EditText txt = new EditText(context);
-                            txt.setText(text);
-                            map.get(currentDim).add(txt);
-                        }
-
-                        break;
-
-                    default:
-                        break;
+        for (File f : src.listFiles()) {
+            ArrayList<Response> resps = new ArrayList<>();
+            Scanner scanner = new Scanner(f);
+            String input = scanner.next();
+            int first = 0;
+            int second = 0;
+            for (int i = 0; i < input.length(); i++) {
+                if (input.charAt(i) == '\n') {
+                    if (first == 0) {
+                        first = i;
+                    } else if (second == 0) {
+                        second = i;
+                    }
                 }
-                eventType = parser.next();
             }
+            CharSequence id = input.subSequence(1, first - 1);
+            CharSequence text = input.substring(second + 1, input.length() - 1);
+            Response resp = new Response(Integer.parseInt(id.toString()), f.getName(), text.toString(), context);
+            resps.add(resp);
+            map.put(f.getName(), resps);
 
-        } catch (XmlPullParserException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
+
         return map;
     }
 }

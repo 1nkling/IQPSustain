@@ -1,4 +1,4 @@
-package com.example.helloworld;
+package com.example.SustainibilitySpotlight;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,8 +29,8 @@ public class SurveyActivity extends AppCompatActivity {
             init();
         }
         catch(IOException ie){
-            Toast t = new Toast(getApplicationContext());
-            t.setText("Could not read dimensions; fatal error");
+            Toast t = Toast.makeText(getApplicationContext(), "Could not read dimensions; fatal error", Toast.LENGTH_SHORT);
+            t.show();
             openMainNew();
         }
     }

@@ -1,24 +1,15 @@
-package com.example.helloworld;
+package com.example.SustainibilitySpotlight;
 
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.content.Intent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.helloworld.Struct.Question;
-import com.example.helloworld.XMLParser.XMLParser;
-
 import org.xmlpull.v1.XmlPullParser;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 //Look into scale to measure numbers
 //Look into save bundle state

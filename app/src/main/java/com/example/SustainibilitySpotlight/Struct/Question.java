@@ -1,4 +1,4 @@
-package com.example.helloworld.Struct;
+package com.example.SustainibilitySpotlight.Struct;
 
 /**
  * Created by danso on 12/11/2016.
