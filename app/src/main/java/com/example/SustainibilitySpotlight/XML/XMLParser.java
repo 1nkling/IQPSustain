@@ -109,30 +109,30 @@ public class XMLParser {
         return questions;
     }
 
-    public HashMap<String, ArrayList<Response>> parse2(File src, Context context) throws FileNotFoundException {
+    public HashMap<String, ArrayList<Response>> parse2(Context context) throws FileNotFoundException {
         HashMap<String, ArrayList<Response>> map = new HashMap<>();
-
-        for (File f : src.listFiles()) {
+        // TODO I think this is trying to get at the wrong file so this is a potential source of issue
+        File is = context.getDir("responses", 0);
+        for (File f : is.listFiles()) {
+            String name = f.getName();
             ArrayList<Response> resps = new ArrayList<>();
             Scanner scanner = new Scanner(f);
-            String input = scanner.next();
-            int first = 0;
-            int second = 0;
-            for (int i = 0; i < input.length(); i++) {
-                if (input.charAt(i) == '\n') {
-                    if (first == 0) {
-                        first = i;
-                    } else if (second == 0) {
-                        second = i;
-                    }
+            boolean bool = true;
+            int tempID = -999;
+            String tempResp;
+            while(scanner.hasNextLine()){
+                String input = scanner.nextLine();
+                if (bool){
+                    tempID = Integer.parseInt(input);
+                    bool = false;
+                } else {
+                    bool = true;
+                    tempResp = input;
+                    resps.add(new Response(tempID, name, tempResp, context));
                 }
-            }
-            CharSequence id = input.subSequence(1, first - 1);
-            CharSequence text = input.substring(second + 1, input.length() - 1);
-            Response resp = new Response(Integer.parseInt(id.toString()), f.getName(), text.toString(), context);
-            resps.add(resp);
-            map.put(f.getName(), resps);
 
+            }
+            map.put(name, resps);
         }
 
         return map;

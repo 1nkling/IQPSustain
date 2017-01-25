@@ -32,14 +32,7 @@ public class SurveyMap {
         questionsMap = new HashMap<>();
         SharedPreferences sustPref = context.getSharedPreferences("SustSpotlight", 0);
         if (sustPref.getBoolean("saved", false)) {
-            File sdCard = Environment.getExternalStorageDirectory();
-            File spotlight = sdCard;
-            for (File f : sdCard.listFiles()) {
-                if (f.getName() == "SustSpotlight") {
-                    spotlight = f;
-                }
-            }
-            responsesMap = parser.parse2(spotlight, context);
+            responsesMap = parser.parse2(context);
         }
         for (; i < size; i++){
             String name = questions.get(i).getDimension();
@@ -72,11 +65,14 @@ public class SurveyMap {
     }
 
     public ArrayList<Response> getResponses(String dim){
+        if (responsesMap == null) throw new RuntimeException("Had not saved yet");
         ArrayList resps = responsesMap.get(dim);
         if (resps != null) {
             return resps;
         }
-        else throw new RuntimeException("no responses for the dim:" + dim);
+        // TODO probably want to have this return a list of responses with no text
+        // and then we can remove some code in abstract survey probably
+        else throw new RuntimeException("no responses for the dim: " + dim);
     }
 
     public boolean hasAnswers(){

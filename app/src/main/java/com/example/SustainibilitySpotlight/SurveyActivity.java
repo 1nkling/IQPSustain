@@ -31,6 +31,7 @@ public class SurveyActivity extends AppCompatActivity {
         catch(IOException ie){
             Toast t = Toast.makeText(getApplicationContext(), "Could not read dimensions; fatal error", Toast.LENGTH_SHORT);
             t.show();
+            ie.printStackTrace();
             openMainNew();
         }
     }

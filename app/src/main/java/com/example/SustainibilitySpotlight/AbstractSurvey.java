@@ -81,8 +81,9 @@ public class AbstractSurvey extends AppCompatActivity {
         }
         XMLWriter writer = new XMLWriter();
         try {
-            writer.writeResponses(temp, getApplicationContext());
+            writer.writeResponses(temp, getApplicationContext(), this.name);
             SharedPreferences.Editor editor = getSharedPreferences("SustSpotlight", 0).edit();
+            editor.putBoolean(name, true);
             editor.putBoolean("saved", true);
             editor.commit();
         } catch (IOException e) {
@@ -97,7 +98,7 @@ public class AbstractSurvey extends AppCompatActivity {
             SurveyMap map = new SurveyMap(getApplicationContext());
             questions = map.getQuestions(this.name);
             SharedPreferences sustPref = getSharedPreferences("SustSpotlight", 0);
-            if (sustPref.getBoolean("saved", false)){
+            if (sustPref.getBoolean(name, false) && sustPref.getBoolean("saved", false)){
                 ArrayList<Response> resps = map.getResponses(name);
                 int i = 0, j = 0;
                 if (resps.size() == questions.size()){

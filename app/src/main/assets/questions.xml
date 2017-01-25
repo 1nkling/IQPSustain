@@ -2,7 +2,7 @@
 <questions>
     <question>
         <q> What is the average length of your showers (in minutes)? </q>
-        <id>1</id>
+        <id>0</id>
         <respType> open </respType>
         <maxScore>30</maxScore>
         <isLowGood>true</isLowGood>
@@ -11,7 +11,7 @@
     </question>
     <question>
         <q> On a scale of 1-10, with 10 being the most often, how often do you wash dishes using a washing machine as opposed to by hand? </q>
-        <id>2</id>
+        <id>1</id>
         <respType> open </respType>
         <maxScore>10</maxScore>
         <isLowGood>false</isLowGood>
@@ -20,7 +20,7 @@
     </question>
     <question>
         <q> When using a washing machine, do you use a top-loader (0) or front-loader(1) ?</q>
-        <id>3</id>
+        <id>2</id>
         <respType> open </respType>
         <maxScore>1</maxScore>
         <isLowGood>false</isLowGood>
@@ -38,7 +38,7 @@
     </question>
     <question>
         <q> Do you recycle?</q>
-        <id>4</id>
+        <id>0</id>
         <respType> open </respType>
         <maxScore>1</maxScore>
         <isLowGood>false</isLowGood>
@@ -47,7 +47,7 @@
     </question>
     <question>
         <q> How educated are you in terms of sustainability?</q>
-        <id>5</id>
+        <id>0</id>
         <respType> open </respType>
         <maxScore>1</maxScore>
         <isLowGood>false</isLowGood>
