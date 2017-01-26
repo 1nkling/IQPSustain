@@ -5,10 +5,12 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -75,6 +77,7 @@ public class AbstractSurvey extends AppCompatActivity {
 
     //TODO
     private void saveAnswers() {
+        updateResps();
         ArrayList<Response> temp = new ArrayList<>();
         for (int i = 0; i < qAndA.size(); i++){
             temp.add(i, qAndA.get(i).getResp());
@@ -86,6 +89,8 @@ public class AbstractSurvey extends AppCompatActivity {
             editor.putBoolean(name, true);
             editor.putBoolean("saved", true);
             editor.commit();
+            Log.d("saveAnswers","Saved answers");
+            Log.d("saveAnswers",temp.toString());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -177,6 +182,17 @@ public class AbstractSurvey extends AppCompatActivity {
             content.addView(qAndA.get(i).getContent());
         }
 
+    }
+
+    private void updateResps(){
+        int i = 0;
+        for (; i < content.getChildCount(); i++){
+            LinearLayout qAndR = (LinearLayout) content.getChildAt(i);
+            EditText et = (EditText) qAndR.getChildAt(1);
+            String text = et.getText().toString();
+            qAndA.get(i).getResp().updateText(text);
+
+        }
     }
 
 

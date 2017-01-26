@@ -64,4 +64,7 @@ public class Response {
     public void setText(String text) {
         this.text = text;
     }
+    public String toString(){
+        return dim + " id: " + id + " resp: "+ text;
+    }
 }

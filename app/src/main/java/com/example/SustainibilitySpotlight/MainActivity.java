@@ -39,9 +39,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        SharedPreferences.Editor editor = getSharedPreferences("SustSpotlight", 0).edit();
-        editor.putBoolean("saved", false);
-        editor.commit();
         init();
     }
 

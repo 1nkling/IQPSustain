@@ -48,6 +48,7 @@ public class QuestionAndResponse {
             this. id = resp.getId();
         }
         else this.id = -999;
+
     }
 
     public Question getQuestion() {
@@ -72,6 +73,10 @@ public class QuestionAndResponse {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String toString(){
+        return "q: " + this.q.toString() + " resp: " + this.resp.toString();
     }
 
 
