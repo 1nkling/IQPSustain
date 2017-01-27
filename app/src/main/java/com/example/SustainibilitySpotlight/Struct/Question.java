@@ -14,6 +14,7 @@ public class Question {
     private boolean isLowGood;
     private String dimension;
 
+
     public String getRespType() {
         return respType;
     }

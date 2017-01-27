@@ -79,5 +79,13 @@ public class QuestionAndResponse {
         return "q: " + this.q.toString() + " resp: " + this.resp.toString();
     }
 
+    public boolean needsRec(){
+        //TODO
+        if (Integer.parseInt(resp.getText()) < question.getMaxScore()){
+            return true;
+        }
+        return false;
+    }
+
 
 }

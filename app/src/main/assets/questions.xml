@@ -28,15 +28,6 @@
         <rec>  Keep an eye out for front-loading machines; they use 40-75% less water than top-loaders!</rec>
     </question>
     <question>
-        <q> When using a washing machine, do you use a top-loader (0) or front-loader(1) ?</q>
-        <id>3</id>
-        <respType> open </respType>
-        <maxScore>1</maxScore>
-        <isLowGood>false</isLowGood>
-        <dimension>water</dimension>
-        <rec>  Keep an eye out for front-loading machines; they use 40-75% less water than top-loaders!</rec>
-    </question>
-    <question>
         <q> Do you recycle?</q>
         <id>0</id>
         <respType> open </respType>
@@ -52,6 +43,15 @@
         <maxScore>1</maxScore>
         <isLowGood>false</isLowGood>
         <dimension>general</dimension>
+        <rec>  Use this app!</rec>
+    </question>
+    <question>
+        <q> Do you use LED or CFI lightbulbs?</q>
+        <id>0</id>
+        <respType> open </respType>
+        <maxScore>1</maxScore>
+        <isLowGood>false</isLowGood>
+        <dimension>electricity</dimension>
         <rec>  Use this app!</rec>
     </question>
 </questions>
