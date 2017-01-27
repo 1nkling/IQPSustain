@@ -66,15 +66,15 @@ public class SurveyActivity extends AppCompatActivity {
 
     private void color(Button temp, int i) {
         if (i % 3 == 0){
-            temp.setBackgroundColor(Color.RED);
+            temp.setBackgroundColor(getColor(android.R.color.holo_red_light));
         }
 
         else if (i % 3 == 1){
-            temp.setBackgroundColor(Color.YELLOW);
+            temp.setBackgroundColor(getColor(android.R.color.holo_orange_light));
         }
 
         else{
-            temp.setBackgroundColor(Color.GREEN);
+            temp.setBackgroundColor(getColor(android.R.color.holo_green_dark));
         }
     }
 

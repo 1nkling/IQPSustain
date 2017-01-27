@@ -3,6 +3,8 @@ package com.example.SustainibilitySpotlight;
 import android.content.Context;
 import android.widget.EditText;
 
+import com.example.SustainibilitySpotlight.Struct.Question;
+
 /**
  * Created by peterdebrine on 1/22/17.
  */
@@ -26,6 +28,13 @@ public class Response {
         this.eText = eText;
         this.dim = dim;
         this.text = eText.getText().toString();
+    }
+
+    public Response(Question q, Context c) {
+        this.id = q.getId();
+        this.eText = new EditText(c);
+        this.dim = q.getDimension();
+        this.text = "";
     }
 
     public void updateText(String text){
