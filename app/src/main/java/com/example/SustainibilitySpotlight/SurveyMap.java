@@ -1,6 +1,7 @@
 package com.example.SustainibilitySpotlight;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Environment;
 import android.util.Log;
@@ -14,19 +15,22 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+
 /**
  * Created by peterdebrine on 12/15/16.
  */
-//TODO Make the QANDA List happen in here
+
 public class SurveyMap {
     private HashMap<String, ArrayList<Question>> questionsMap;
     private HashMap<String, ArrayList<Response>> responsesMap;
     private HashMap<String, ArrayList<QuestionAndResponse>> QandRMap;
     private ArrayList<Question> questions;
     ArrayList<String> dims;
+     Context c;
 
 
     SurveyMap(Context context) throws IOException {
+        c = context;
         XMLParser parser = new XMLParser();
         questions = parser.parse(context.getAssets().open("questions.xml"));
         int size = questions.size();
@@ -54,7 +58,7 @@ public class SurveyMap {
         if (sustPref.getBoolean("saved", false)) {
             responsesMap = parser.parse2(context);
         }
-        
+
         for (String dim : dims){
             if (responsesMap.get(dim) == null){
                 ArrayList<Response> resps = new ArrayList<>();
@@ -90,13 +94,11 @@ public class SurveyMap {
     }
 
     public ArrayList<Response> getResponses(String dim){
-        if (responsesMap == null) throw new RuntimeException("Had not saved yet");
         ArrayList resps = responsesMap.get(dim);
         if (resps != null) {
             return resps;
         }
-        // TODO probably want to have this return a list of responses with no text
-        // and then we can remove some code in abstract survey probably
+        // Should NEVER happen
         else throw new RuntimeException("no responses for the dim: " + dim);
     }
 
@@ -116,4 +118,13 @@ public class SurveyMap {
         return !(responsesMap.get(dim).isEmpty());
     }
 
+    public String getNextDim(String name) throws IOException {
+        // Minus one so that you will no end up out of bounds
+        for (int i = 0; i < dims.size()-  1; i++){
+            if (dims.get(i).equals(name)){
+                return dims.get(i + 1);
+            }
+        }
+        throw new IOException();
+    }
 }

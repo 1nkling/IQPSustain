@@ -35,18 +35,9 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="@string/button_send"
+            android:text="Next"
             android:onClick="sendMessage"
-            android:id="@+id/send" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="Status"
-            android:onClick="checkStatus"
-            android:id="@+id/status" />
+            android:id="@+id/next" />
 
         <Button
             android:text="Back"

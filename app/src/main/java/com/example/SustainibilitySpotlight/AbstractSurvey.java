@@ -29,6 +29,7 @@ public class AbstractSurvey extends AppCompatActivity {
 
     Button back;
     Button main;
+    Button next;
     ViewGroup content;
     Button submit;
     Button status;
@@ -46,23 +47,48 @@ public class AbstractSurvey extends AppCompatActivity {
         TextView dimName = (TextView) findViewById(R.id.Name);
         dimName.setText(this.name);
         content = (ViewGroup) findViewById(R.id.content);
+        next = (Button) findViewById(R.id.next);
         back = (Button) findViewById(R.id.back);
-        submit = (Button) findViewById(R.id.send);
-        status = (Button) findViewById(R.id.status);
+        main = (Button) findViewById(R.id.main);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 goBack();
             }
         });
-        main = (Button) findViewById(R.id.main);
         main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openMainNew();
             }
         });
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    next();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
         init();
+    }
+
+    private void next() throws IOException {
+        SurveyMap map = new SurveyMap(getApplicationContext());
+        String nextDim = "";
+        try{
+            nextDim = map.getNextDim(name);
+        }
+        catch(IOException ie){
+            openMainNew();
+            return;
+        }
+        saveAnswers();
+        Intent intent = new Intent(this, AbstractSurvey.class);
+        intent.putExtra(SurveyActivity.EXTRA_MESSAGE, nextDim);
+        startActivity(intent);
     }
 
     protected String getName(){
@@ -120,6 +146,7 @@ public class AbstractSurvey extends AppCompatActivity {
 
     //returns to the home menu
     private void openMainNew() {
+        saveAnswers();
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
