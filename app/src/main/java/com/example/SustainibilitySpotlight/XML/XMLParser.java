@@ -1,7 +1,6 @@
 package com.example.SustainibilitySpotlight.XML;
 
 import android.content.Context;
-import android.content.IntentFilter;
 import android.util.Log;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -12,13 +11,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InterruptedIOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
-import com.example.SustainibilitySpotlight.Response;
+import com.example.SustainibilitySpotlight.Struct.Response;
 import com.example.SustainibilitySpotlight.Struct.Question;
 
 /**

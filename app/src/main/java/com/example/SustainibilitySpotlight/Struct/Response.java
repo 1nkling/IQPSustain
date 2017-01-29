@@ -1,4 +1,4 @@
-package com.example.SustainibilitySpotlight;
+package com.example.SustainibilitySpotlight.Struct;
 
 import android.content.Context;
 import android.widget.EditText;

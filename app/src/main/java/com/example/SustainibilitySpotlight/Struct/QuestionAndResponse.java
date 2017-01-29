@@ -1,10 +1,9 @@
-package com.example.SustainibilitySpotlight;
+package com.example.SustainibilitySpotlight.Struct;
 
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.SustainibilitySpotlight.Response;
+import com.example.SustainibilitySpotlight.Struct.Response;
 import com.example.SustainibilitySpotlight.Struct.Question;
 
 /**

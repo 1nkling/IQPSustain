@@ -15,6 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.SustainibilitySpotlight.Struct.Question;
+import com.example.SustainibilitySpotlight.Struct.QuestionAndResponse;
+import com.example.SustainibilitySpotlight.Struct.Response;
 import com.example.SustainibilitySpotlight.XML.XMLWriter;
 
 import java.io.IOException;

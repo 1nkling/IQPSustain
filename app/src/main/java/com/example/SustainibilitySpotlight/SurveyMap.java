@@ -2,14 +2,12 @@ package com.example.SustainibilitySpotlight;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.Environment;
 
 import com.example.SustainibilitySpotlight.Struct.Question;
+import com.example.SustainibilitySpotlight.Struct.Response;
 import com.example.SustainibilitySpotlight.XML.XMLParser;
 
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
