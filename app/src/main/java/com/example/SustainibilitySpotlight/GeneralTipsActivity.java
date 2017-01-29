@@ -100,15 +100,17 @@ public class GeneralTipsActivity extends AppCompatActivity {
     // Populates this activity with its respective questions
     public void populate() {
         for (int i = 0; i < qAndA.size(); i++){
-            TextView tv = new TextView(this);
-            tv.setTextSize(26);
-            tv.setPadding(20, 20, 20, 20);
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-            params.setMargins(10, 10, 10, 10);
-            tv.setLayoutParams(params);
-            tv.setText(qAndA.get(i).getQuestion().getRec());
-            content.addView(tv);
+            if(qAndA.get(i).needsRec()) {
+                TextView tv = new TextView(this);
+                tv.setTextSize(26);
+                tv.setPadding(20, 20, 20, 20);
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                params.setMargins(10, 10, 10, 10);
+                tv.setLayoutParams(params);
+                tv.setText(qAndA.get(i).getQuestion().getRec());
+                content.addView(tv);
+            }
         }
 
     }
