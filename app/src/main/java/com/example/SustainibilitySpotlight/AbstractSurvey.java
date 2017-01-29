@@ -32,9 +32,9 @@ public class AbstractSurvey extends AppCompatActivity {
     ViewGroup content;
     Button submit;
     Button status;
-    ArrayList<QuestionAndResponse> qAndA = new ArrayList();
+    ArrayList<QuestionAndResponse> qAndA = new ArrayList<>();
     ArrayList<Question> questions = new ArrayList<Question>();
-    List<EditText> editTextList = new ArrayList<EditText>(); // Their answers
+    ArrayList<EditText> editTextList = new ArrayList<>();
     private String name; // Its dimension
 
     @Override
@@ -42,7 +42,7 @@ public class AbstractSurvey extends AppCompatActivity {
         // Sets up the screen by initializing and setting the on click listeners, then calls init
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_abstract_survey);
-        this.name = setName();
+        this.name = getName();
         TextView dimName = (TextView) findViewById(R.id.Name);
         dimName.setText(this.name);
         content = (ViewGroup) findViewById(R.id.content);
@@ -65,7 +65,7 @@ public class AbstractSurvey extends AppCompatActivity {
         init();
     }
 
-    protected String setName(){
+    protected String getName(){
         return getIntent().getStringExtra(SurveyActivity.EXTRA_MESSAGE);
     }
 
@@ -102,59 +102,7 @@ public class AbstractSurvey extends AppCompatActivity {
             // Gets a survey map (aka its list of questions)
             SurveyMap map = new SurveyMap(getApplicationContext());
             questions = map.getQuestions(this.name);
-            SharedPreferences sustPref = getSharedPreferences("SustSpotlight", 0);
-            if (sustPref.getBoolean(name, false) && sustPref.getBoolean("saved", false)){
-                ArrayList<Response> resps = map.getResponses(name);
-                int i = 0, j = 0;
-                if (resps.size() == questions.size()){
-                    // puts them in the array in order of the new QandR's id number
-                    for (; i < questions.size(); i++){
-                        for (; j < resps.size(); j++){
-                            if (questions.get(i).getId() == resps.get(j).getId()) {
-                                QuestionAndResponse temp = new QuestionAndResponse(questions.get(i), resps.get(j));
-                                qAndA.add(temp.getId(), temp);
-                                break;
-                            }
-                        }
-                    }
-                }
-                else { // The survey was not totally filled out
-
-                    ArrayList<Integer> filled = new ArrayList<>();
-
-                    // puts them in the array in order of the new QandR's id number
-                    for (; i < questions.size(); i++){
-                        for (; j < resps.size(); j++){
-                            if (questions.get(i).getId() == resps.get(j).getId()) {
-                                QuestionAndResponse temp = new QuestionAndResponse(questions.get(i), resps.get(j));
-                                qAndA.add(temp.getId(), temp);
-                                filled.add(temp.getId());
-                                break;
-                            }
-                        }
-                        if (qAndA.size() == resps.size()){
-                            break;
-                        }
-                    }
-
-                    for (i = 0; i < questions.size(); i++){
-                        if (filled.contains(new Integer(i)));
-                        else {
-                            Response resp = new Response(i, name, "", getApplicationContext());
-                            QuestionAndResponse temp = new QuestionAndResponse(questions.get(i), resp);
-                            qAndA.add(i, temp);
-                        }
-                    }
-                }
-            }
-            else {
-                int i;
-                for (i = 0; i < questions.size(); i++){
-                    Response resp = new Response(i, name, "", getApplicationContext());
-                    QuestionAndResponse temp = new QuestionAndResponse(questions.get(i), resp);
-                    qAndA.add(i, temp);
-                }
-            }
+            qAndA = map.getQRs(name);
         }
         catch(IOException ie) {
             ie.printStackTrace();

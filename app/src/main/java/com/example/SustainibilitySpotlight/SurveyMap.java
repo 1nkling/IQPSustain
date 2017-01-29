@@ -3,6 +3,7 @@ package com.example.SustainibilitySpotlight;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Environment;
+import android.util.Log;
 
 import com.example.SustainibilitySpotlight.Struct.Question;
 import com.example.SustainibilitySpotlight.XML.XMLParser;
@@ -20,6 +21,7 @@ import java.util.HashMap;
 public class SurveyMap {
     private HashMap<String, ArrayList<Question>> questionsMap;
     private HashMap<String, ArrayList<Response>> responsesMap;
+    private HashMap<String, ArrayList<QuestionAndResponse>> QandRMap;
     private ArrayList<Question> questions;
     ArrayList<String> dims;
 
@@ -30,10 +32,10 @@ public class SurveyMap {
         int size = questions.size();
         int i = 0;
         questionsMap = new HashMap<>();
+        responsesMap = new HashMap<>();
+        QandRMap = new HashMap<>();
         SharedPreferences sustPref = context.getSharedPreferences("SustSpotlight", 0);
-        if (sustPref.getBoolean("saved", false)) {
-            responsesMap = parser.parse2(context);
-        }
+
         for (; i < size; i++){
             String name = questions.get(i).getDimension();
             if (!(questionsMap.containsKey(name))){
@@ -47,6 +49,29 @@ public class SurveyMap {
             if (!(dims.contains(questions.get(i).getDimension()))) {
                 dims.add(questions.get(i).getDimension());
             }
+        }
+
+        if (sustPref.getBoolean("saved", false)) {
+            responsesMap = parser.parse2(context);
+        }
+        
+        for (String dim : dims){
+            if (responsesMap.get(dim) == null){
+                ArrayList<Response> resps = new ArrayList<>();
+                for (Question q: questionsMap.get(dim)){
+                    resps.add(new Response(q, context));
+                }
+                responsesMap.put(dim, resps);
+            }
+        }
+
+        for (String dim: dims){
+            ArrayList<QuestionAndResponse> qrs = new ArrayList<>();
+            for (i = 0; i< questionsMap.get(dim).size(); i++){
+                qrs.add(new QuestionAndResponse(questionsMap.get(dim).get(i),
+                        responsesMap.get(dim).get(i)));
+            }
+            QandRMap.put(dim, qrs);
         }
 
     }
@@ -73,6 +98,14 @@ public class SurveyMap {
         // TODO probably want to have this return a list of responses with no text
         // and then we can remove some code in abstract survey probably
         else throw new RuntimeException("no responses for the dim: " + dim);
+    }
+
+    public HashMap<String, ArrayList<QuestionAndResponse>> getQRMap(){
+        return QandRMap;
+    }
+
+    public ArrayList<QuestionAndResponse> getQRs(String dim){
+        return QandRMap.get(dim);
     }
 
     public boolean hasAnswers(){
