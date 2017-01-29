@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.Space;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -60,6 +62,11 @@ public class SurveyActivity extends AppCompatActivity {
                     openSurvey(b.getText().toString());
                 }
             });
+            temp.setPadding(20, 20, 20, 20);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            params.setMargins(10, 10, 10, 10);
+            temp.setLayoutParams(params);
             dimensions.addView(temp);
         }
         }

@@ -107,6 +107,7 @@ public class XMLParser {
         return questions;
     }
 
+    // Does NOT check if the files exist will throw exception
     public HashMap<String, ArrayList<Response>> parse2(Context context) throws FileNotFoundException {
         HashMap<String, ArrayList<Response>> map = new HashMap<>();
         // TODO I think this is trying to get at the wrong file so this is a potential source of issue

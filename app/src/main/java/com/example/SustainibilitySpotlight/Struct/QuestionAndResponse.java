@@ -43,6 +43,10 @@ public class QuestionAndResponse {
         content.setOrientation(LinearLayout.VERTICAL);
         content.addView(q);
         content.addView(resp.geteText());
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        params.setMargins(10, 20, 10, 10);
+        content.setLayoutParams(params);
         if (resp.getId() == question.getId()){
             this. id = resp.getId();
         }
