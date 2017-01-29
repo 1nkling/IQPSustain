@@ -36,7 +36,7 @@
             android:backgroundTint="@android:color/holo_red_light" />
 
         <Button
-            android:text="Sustainability Tips"
+            android:text="Tips for Improvement"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tips"

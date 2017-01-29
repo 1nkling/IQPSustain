@@ -24,7 +24,7 @@ public class WaterTipsActivity extends AppCompatActivity {
     }
 
     private void init() {
-        name = (TextView) findViewById(R.id.name);
+        name = (TextView) findViewById(R.id.Name);
         name.setText("Water Tips");
         content = (LinearLayout) findViewById(R.id.content);
         back = findViewById(R.id.back);
