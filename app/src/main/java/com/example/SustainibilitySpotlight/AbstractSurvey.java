@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -165,9 +166,9 @@ public class AbstractSurvey extends AppCompatActivity {
         int i = 0;
         for (; i < content.getChildCount(); i++){
             LinearLayout qAndR = (LinearLayout) content.getChildAt(i);
-            EditText et = (EditText) qAndR.getChildAt(1);
-            String text = et.getText().toString();
-            qAndA.get(i).getResp().updateText(text);
+            SeekBar bar = (SeekBar) qAndR.getChildAt(1);
+            int resp = bar.getProgress();
+            qAndA.get(i).getResp().updateText(resp);
 
         }
     }

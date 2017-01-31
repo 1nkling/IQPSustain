@@ -9,7 +9,7 @@ public class Question {
     private String q;
     private int id;
     private String respType;
-    private double maxScore;
+    private int maxScore;
     private String rec;
     private boolean isLowGood;
     private String dimension;
@@ -26,7 +26,7 @@ public class Question {
         return id;
     }
 
-    public double getMaxScore() {
+    public int getMaxScore() {
         return maxScore;
     }
 

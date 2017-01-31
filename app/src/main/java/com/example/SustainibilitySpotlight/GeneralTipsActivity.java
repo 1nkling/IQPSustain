@@ -128,7 +128,7 @@ public class GeneralTipsActivity extends AppCompatActivity {
 
     private void init() {
         name = (TextView) findViewById(R.id.name);
-        name.setText("General Tips");
+        name.setResp("General Tips");
         content = (LinearLayout) findViewById(R.id.content);
         back = findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
@@ -139,7 +139,7 @@ public class GeneralTipsActivity extends AppCompatActivity {
         });
         TextView tip1 = new TextView(this);
         tip1.setTextSize(20);
-        tip1.setText("At every moment people often have things on that do not need to be," +
+        tip1.setResp("At every moment people often have things on that do not need to be," +
                 "you should make a conscious effort to minimize this kind of waste. For example leaving the refrigerator open.");
         content.addView(tip1);
     }

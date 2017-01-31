@@ -44,7 +44,7 @@ public class WaterActivity extends AbstractSurvey {
                 text+= "q : "+question.getQ()+" respType : "+question.getRespNum()+" Rec : "+question.getRec()+"\n";
             }
 
-            textView.setText(text);*//*
+            textView.setResp(text);*//*
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -53,14 +53,14 @@ public class WaterActivity extends AbstractSurvey {
         for(int i = 0; i < Questions.size() ; i++) {
             //sets the values for question textView.
             TextView tv = new TextView(this);
-            tv.setText(Questions.get(i).getQ());
+            tv.setResp(Questions.get(i).getQ());
             tv.setId(Questions.get(i).getId());
 
             //sets the values for response EditText.
             EditText et = new EditText(this);
             SharedPreferences waterPref = getSharedPreferences("waterAns", 0);
             if(waterPref.getLong(Integer.toString(i), -1) != -1){
-                et.setText(Long.toString(waterPref.getLong(Integer.toString(i), -1)));
+                et.setResp(Long.toString(waterPref.getLong(Integer.toString(i), -1)));
             }
             ViewGroup layout = (ViewGroup) findViewById(R.id.water_activity);
             layout.addView(tv);
@@ -95,11 +95,11 @@ public class WaterActivity extends AbstractSurvey {
     public void sendMessage(View view) {
         //EditText editText = (EditText) findViewById(R.id.edit_message);
         //EditText editText2 = (EditText) findViewById(R.id.edit_message2);
-        /*if((editText.getText().toString()).matches("")){
+        /*if((editText.getResp().toString()).matches("")){
             Toast.makeText(this, "You did not select an option for q1", Toast.LENGTH_SHORT).show();
             return;
         }
-        else if((editText2.getText().toString()).matches("")){
+        else if((editText2.getResp().toString()).matches("")){
             Toast.makeText(this, "You did not select an option for q2", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -109,9 +109,9 @@ public class WaterActivity extends AbstractSurvey {
         }
 */
         Intent intent = new Intent(this, DisplayMessageActivity.class);
-        /*int num = Integer.parseInt(editText.getText().toString());
+        /*int num = Integer.parseInt(editText.getResp().toString());
         String message = eval(num);
-        int num2 = Integer.parseInt(editText2.getText().toString());
+        int num2 = Integer.parseInt(editText2.getResp().toString());
         String message2 = eval(num2);
         String fString = message.concat(message2);
         String ffString = fString.concat(conv(i));

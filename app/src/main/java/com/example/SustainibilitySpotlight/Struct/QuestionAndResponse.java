@@ -3,9 +3,6 @@ package com.example.SustainibilitySpotlight.Struct;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.SustainibilitySpotlight.Struct.Response;
-import com.example.SustainibilitySpotlight.Struct.Question;
-
 /**
  * Created by peterdebrine on 1/22/17.
  */
@@ -37,12 +34,12 @@ public class QuestionAndResponse {
     public QuestionAndResponse(Question question, Response resp) {
         this.question = question;
         this.resp = resp;
-        q = new TextView(resp.geteText().getContext());
+        q = new TextView(resp.getPBar().getContext());
         q.setText(question.getQ());
         content = new LinearLayout(q.getContext());
         content.setOrientation(LinearLayout.VERTICAL);
         content.addView(q);
-        content.addView(resp.geteText());
+        content.addView(resp.getPBar());
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         params.setMargins(10, 20, 10, 10);
@@ -84,7 +81,7 @@ public class QuestionAndResponse {
 
     public boolean needsRec(){
         //TODO
-        if (Integer.parseInt(resp.getText()) < question.getMaxScore()){
+        if (resp.getResp() < question.getMaxScore()){
             return true;
         }
         return false;

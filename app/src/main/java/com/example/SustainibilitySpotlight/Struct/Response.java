@@ -1,53 +1,54 @@
 package com.example.SustainibilitySpotlight.Struct;
 
 import android.content.Context;
-import android.widget.EditText;
-
-import com.example.SustainibilitySpotlight.Struct.Question;
+import android.widget.SeekBar;
 
 /**
  * Created by peterdebrine on 1/22/17.
  */
 
 public class Response {
-    EditText eText;
-    String text;
+    SeekBar bar;
+    int resp;
     int id;
     String dim;
 
-    public Response(int id, String dim, String text, Context c) {
+    public Response(int id, String dim, int resp, Context c) {
         this.id = id;
         this.dim = dim;
-        this.text = text;
-        this.eText = new EditText(c);
-        eText.setText(text);
-    }
-
-    public Response(int id, EditText eText, String dim) {
-        this.id = id;
-        this.eText = eText;
-        this.dim = dim;
-        this.text = eText.getText().toString();
+        this.resp = resp;
+        this.bar = new SeekBar(c);
+        this.bar.setProgress(this.resp);
     }
 
     public Response(Question q, Context c) {
         this.id = q.getId();
-        this.eText = new EditText(c);
+        this.bar = new SeekBar(c);
+        bar.setMax(q.getMaxScore());
+        // TODO
+        // 0 might be better; either add a min score or just check each question and see if its appropriate
+        if (q.isLowGood()) {
+            bar.setProgress(q.getMaxScore());
+            this.resp = q.getMaxScore();
+        }
+        else {
+            bar.setProgress(0);
+            this.resp = 0;
+        }
         this.dim = q.getDimension();
-        this.text = "";
     }
 
-    public void updateText(String text){
-        setText(text);
-        this.eText.setText(text);
+    public void updateText(int text){
+        setResp(text);
+        this.bar.setProgress(text);
     }
 
-    public EditText geteText() {
-        return eText;
+    public SeekBar getPBar() {
+        return bar;
     }
 
-    public void seteText(EditText eText) {
-        this.eText = eText;
+    public void setPBar(SeekBar bar) {
+        this.bar = bar;
     }
 
     public int getId() {
@@ -66,14 +67,14 @@ public class Response {
         this.dim = dim;
     }
 
-    public String getText() {
-        return text;
+    public int getResp() {
+        return resp;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setResp(int resp) {
+        this.resp = resp;
     }
     public String toString(){
-        return dim + " id: " + id + " resp: "+ text;
+        return dim + " id: " + id + " resp: "+ resp;
     }
 }

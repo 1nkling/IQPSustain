@@ -110,7 +110,6 @@ public class XMLParser {
     // Does NOT check if the files exist will throw exception
     public HashMap<String, ArrayList<Response>> parse2(Context context) throws FileNotFoundException {
         HashMap<String, ArrayList<Response>> map = new HashMap<>();
-        // TODO I think this is trying to get at the wrong file so this is a potential source of issue
         File is = context.getDir("responses", 0);
         for (File f : is.listFiles()) {
             String name = f.getName();
@@ -127,7 +126,7 @@ public class XMLParser {
                 } else {
                     bool = true;
                     tempResp = input;
-                    resps.add(new Response(tempID, name, tempResp, context));
+                    resps.add(new Response(tempID, name, Integer.parseInt(tempResp), context));
                 }
 
             }

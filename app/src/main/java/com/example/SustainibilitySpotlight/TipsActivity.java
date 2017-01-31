@@ -120,7 +120,7 @@ public class TipsActivity extends AppCompatActivity {
     private void init() {
         stuff = (ViewGroup) findViewById(R.id.stuff);
         Button general = new Button(getApplicationContext());
-        general.setText("General");
+        general.setResp("General");
         general.setClickable(true);
         general.setTextSize(26);
         general.setOnClickListener(new View.OnClickListener() {
@@ -130,7 +130,7 @@ public class TipsActivity extends AppCompatActivity {
             }
         });
         Button water = new Button(getApplicationContext());
-        water.setText("Water");
+        water.setResp("Water");
         water.setTextSize(26);
         water.setClickable(true);
         water.setOnClickListener(new View.OnClickListener() {
@@ -141,7 +141,7 @@ public class TipsActivity extends AppCompatActivity {
         });
         Button recycling = new Button(getApplicationContext());
         recycling.setTextSize(26);
-        recycling.setText("Recycling");
+        recycling.setResp("Recycling");
         recycling.setClickable(true);
         recycling.setOnClickListener(new View.OnClickListener() {
             @Override

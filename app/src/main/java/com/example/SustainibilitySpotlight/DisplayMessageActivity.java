@@ -40,7 +40,7 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
         TextView intTextView = (TextView)findViewById(R.id.tv1);
         for(int i = 0; i < data.size(); i++){
-            intTextView.setText(intTextView.getText() + "\n" + Integer.toString(data.get(i)));
+            intTextView.setResp(intTextView.getResp() + "\n" + Integer.toString(data.get(i)));
         }
         */
 
@@ -60,7 +60,7 @@ public class DisplayMessageActivity extends AppCompatActivity {
                 else {
                     for (int i = 0; i < rating.size(); i++) {
                         editor.putInt(Integer.toString(i), rating.get(i));
-                        //intTextView.setText(intTextView.getText() + Integer.toString(rating.get(i)));
+                        //intTextView.setResp(intTextView.getResp() + Integer.toString(rating.get(i)));
                     }
                     editor.commit();
                 }
@@ -103,7 +103,7 @@ public class DisplayMessageActivity extends AppCompatActivity {
             SharedPreferences.Editor editor = getSharedPreferences("water", 0).edit();
             for(int i = 0; i < rating.size(); i++) {
                 editor.putInt(Integer.toString(i), rating.get(i));
-                //intTextView.setText(intTextView.getText() + Integer.toString(rating.get(i)));
+                //intTextView.setResp(intTextView.getResp() + Integer.toString(rating.get(i)));
             }
             editor.commit();
         }

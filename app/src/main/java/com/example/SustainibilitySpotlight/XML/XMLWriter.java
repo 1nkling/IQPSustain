@@ -28,7 +28,7 @@ public class XMLWriter {
             Response temp = resps.get(i);
             // TODO considering hardcoding this into xml
             String id = temp.getId() + "\n";
-            String resp = temp.getText() + "\n";
+            String resp = temp.getResp() + "\n";
             byte[] bytes1 = id.getBytes(Charsets.UTF_8);
             byte[] bytes2 = resp.getBytes(Charsets.UTF_8);
             f.write(bytes1);
