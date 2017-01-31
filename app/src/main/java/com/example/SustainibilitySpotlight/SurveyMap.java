@@ -73,7 +73,7 @@ public class SurveyMap {
             ArrayList<QuestionAndResponse> qrs = new ArrayList<>();
             for (i = 0; i< questionsMap.get(dim).size(); i++){
                 qrs.add(new QuestionAndResponse(questionsMap.get(dim).get(i),
-                        responsesMap.get(dim).get(i)));
+                        responsesMap.get(dim).get(i), context));
             }
             QandRMap.put(dim, qrs);
         }

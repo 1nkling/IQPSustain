@@ -8,7 +8,7 @@ import android.widget.SeekBar;
  */
 
 public class Response {
-    SeekBar bar;
+
     int resp;
     int id;
     String dim;
@@ -17,38 +17,11 @@ public class Response {
         this.id = id;
         this.dim = dim;
         this.resp = resp;
-        this.bar = new SeekBar(c);
-        this.bar.setProgress(this.resp);
     }
 
     public Response(Question q, Context c) {
         this.id = q.getId();
-        this.bar = new SeekBar(c);
-        bar.setMax(q.getMaxScore());
-        // TODO
-        // 0 might be better; either add a min score or just check each question and see if its appropriate
-        if (q.isLowGood()) {
-            bar.setProgress(q.getMaxScore());
-            this.resp = q.getMaxScore();
-        }
-        else {
-            bar.setProgress(0);
-            this.resp = 0;
-        }
         this.dim = q.getDimension();
-    }
-
-    public void updateText(int text){
-        setResp(text);
-        this.bar.setProgress(text);
-    }
-
-    public SeekBar getPBar() {
-        return bar;
-    }
-
-    public void setPBar(SeekBar bar) {
-        this.bar = bar;
     }
 
     public int getId() {
@@ -74,6 +47,7 @@ public class Response {
     public void setResp(int resp) {
         this.resp = resp;
     }
+
     public String toString(){
         return dim + " id: " + id + " resp: "+ resp;
     }
