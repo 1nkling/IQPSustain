@@ -84,6 +84,13 @@ public class XMLParser {
                             question.setMaxScore(Integer.parseInt(text));
                         } else if (tagname.equalsIgnoreCase("rec")) {
                             question.setRec(text);
+                        } else if (tagname.equalsIgnoreCase("famID")) {
+                            question.setFamID(Integer.parseInt(text));
+                        }
+                        else if (tagname.equalsIgnoreCase("famType")) {
+                            question.setFamID(Integer.parseInt(text));
+                        } else if (tagname.equalsIgnoreCase("myFamType")) {
+                            question.setFamID(Integer.parseInt(text));
                         } else if (tagname.equalsIgnoreCase("isLowGood")) {
                             if (text.equalsIgnoreCase("true"))
                                 question.setLowGood(true);

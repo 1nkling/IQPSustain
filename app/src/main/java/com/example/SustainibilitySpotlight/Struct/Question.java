@@ -13,7 +13,25 @@ public class Question {
     private String rec;
     private boolean isLowGood;
     private String dimension;
+    private int famID;
+    private int famType;
+    private int myFamType;
 
+    public int getMyFamType() {
+        return myFamType;
+    }
+
+    public void setMyFamType(int myFamType) {
+        this.myFamType = myFamType;
+    }
+
+    public int getFamType() {
+        return famType;
+    }
+
+    public void setFamType(int famType) {
+        this.famType = famType;
+    }
 
     public String getRespType() {
         return respType;
@@ -72,5 +90,13 @@ public class Question {
 
     public String getDimension(){
         return this.dimension;
+    }
+
+    public int getFamID() {
+        return famID;
+    }
+
+    public void setFamID(int famID) {
+        this.famID = famID;
     }
 }

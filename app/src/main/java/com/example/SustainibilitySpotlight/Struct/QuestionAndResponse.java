@@ -1,9 +1,14 @@
 package com.example.SustainibilitySpotlight.Struct;
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import com.example.SustainibilitySpotlight.BarQuestion;
+import com.example.SustainibilitySpotlight.BooleanQuestion;
+import com.example.SustainibilitySpotlight.IQuestion;
 
 /**
  * Created by peterdebrine on 1/22/17.
@@ -37,26 +42,21 @@ public class QuestionAndResponse {
     public QuestionAndResponse(Question question, Response resp, Context c) {
         this.question = question;
         this.resp = resp;
-        SeekBar bar = new SeekBar(c);
-        bar.setMax(question.getMaxScore());
-        // Puts the bar either in the previous place or the worst scoring
-        if (resp.getResp() > 0){
-            bar.setProgress(resp.getResp());
-        }
-        else if (question.isLowGood()){
-            bar.setProgress(question.getMaxScore());
-            resp.setResp(question.getMaxScore());
-        }
-        else {
-            bar.setProgress(0);
-        }
-
         q = new TextView(c);
         q.setText(question.getQ());
         content = new LinearLayout(c);
         content.setOrientation(LinearLayout.VERTICAL);
         content.addView(q);
-        content.addView(bar);
+        if (question.getRespType().equals("open")){
+            BarQuestion bq = new BarQuestion(question, resp.getResp(), c);
+            bq.setAnswer(resp.getResp());
+            content.addView(bq);
+        } else if (question.getRespType().equals("bool")){
+            Log.d("Setting bool question", Integer.toString(resp.getResp()));
+            BooleanQuestion bq = new BooleanQuestion(question, resp.getResp(), c);
+            bq.setAnswer(resp.getResp());
+            content.addView(bq);
+        }
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         params.setMargins(10, 20, 10, 10);

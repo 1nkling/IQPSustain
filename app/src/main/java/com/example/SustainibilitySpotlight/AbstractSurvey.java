@@ -166,8 +166,8 @@ public class AbstractSurvey extends AppCompatActivity {
         int i = 0;
         for (; i < content.getChildCount(); i++){
             LinearLayout qAndR = (LinearLayout) content.getChildAt(i);
-            SeekBar bar = (SeekBar) qAndR.getChildAt(1);
-            int resp = bar.getProgress();
+            IQuestion iq = (IQuestion) qAndR.getChildAt(1);
+            int resp = iq.getAnswer();
             qAndA.get(i).getResp().setResp(resp);
 
         }
