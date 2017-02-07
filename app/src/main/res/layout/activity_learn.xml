@@ -1,21 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_marginBottom="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_margin="10dp">
 
     <TextView
-        android:text="To begin the survey click begin the survey, use the status buttons to view your results"
+        android:text="To begin the survey click begin the survey, use the next buttons to go throught the survey, and the sustainablility tips to see your results"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/learn"
         android:textSize="24sp" />
 
-    <TextView
-        android:text="Find general sustainability tips in the tips section"
+    <Space
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/learn2"
+        android:layout_margin="10dp" />
+
+    <TextView
+        android:text="This application was developed by Dan Song, Peter DeBrine, Carlos Ordonez and Tin Bui, and supervised by Professor John Orr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/about"
         android:textSize="24sp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_margin="15dp" />
 
     <Button
         android:text="Back"

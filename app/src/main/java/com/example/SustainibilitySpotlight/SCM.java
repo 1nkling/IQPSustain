@@ -42,7 +42,6 @@ public class SCM extends Family {
                 frequency += qr.getResp().getResp();
             }
         }
-
         return scalar*rate*frequency;
     }
 
