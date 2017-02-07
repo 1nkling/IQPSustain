@@ -52,7 +52,6 @@ public class QuestionAndResponse {
             bq.setAnswer(resp.getResp());
             content.addView(bq);
         } else if (question.getRespType().equals("bool")){
-            Log.d("Setting bool question", Integer.toString(resp.getResp()));
             BooleanQuestion bq = new BooleanQuestion(question, resp.getResp(), c);
             bq.setAnswer(resp.getResp());
             content.addView(bq);
