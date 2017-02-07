@@ -37,9 +37,9 @@
         <myFamType>0</myFamType>
     </question>
     <question>
-        <q> When using a washing machine, do you use a top-loader (0) or front-loader(1) ?</q>
+        <q> When using a washing machine, do you use a top-loader (yes) or front-loader(no) ?</q>
         <id>3</id>
-        <respType>open</respType>
+        <respType>bool</respType>
         <maxScore>1</maxScore>
         <isLowGood>false</isLowGood>
         <dimension>water</dimension>
@@ -51,7 +51,7 @@
     <question>
         <q> Do you recycle?</q>
         <id>0</id>
-        <respType>open</respType>
+        <respType>bool</respType>
         <maxScore>1</maxScore>
         <isLowGood>false</isLowGood>
         <dimension>recycling</dimension>
@@ -75,7 +75,7 @@
     <question>
         <q> Do you use LED or CFI lightbulbs?</q>
         <id>0</id>
-        <respType>open</respType>
+        <respType>bool</respType>
         <maxScore>1</maxScore>
         <isLowGood>false</isLowGood>
         <dimension>electricity</dimension>
