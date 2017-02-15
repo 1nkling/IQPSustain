@@ -30,6 +30,7 @@ public class GeneralTipsActivity extends AppCompatActivity {
 
     Button back;
     Button main;
+    Button results;
     ViewGroup content;
     ArrayList<QuestionAndResponse> qAndA = new ArrayList<>();
     ArrayList<Question> questions = new ArrayList<Question>();
@@ -46,6 +47,7 @@ public class GeneralTipsActivity extends AppCompatActivity {
         content = (ViewGroup) findViewById(R.id.content);
         back = (Button) findViewById(R.id.back);
         main = (Button) findViewById(R.id.main);
+        results = (Button) findViewById(R.id.results);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,6 +58,12 @@ public class GeneralTipsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 openMainNew();
+            }
+        });
+        results.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toResults();
             }
         });
         init();
@@ -94,6 +102,10 @@ public class GeneralTipsActivity extends AppCompatActivity {
     //returns to the home menu
     private void openMainNew() {
         Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+    private void toResults() {
+        Intent intent = new Intent(this, Results.class);
         startActivity(intent);
     }
 

@@ -49,5 +49,6 @@
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
             android:id="@+id/names" />
+
     </RelativeLayout>
 </RelativeLayout>

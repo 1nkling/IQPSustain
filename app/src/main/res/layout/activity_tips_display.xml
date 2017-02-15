@@ -21,6 +21,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/back" />
+    <Button
+        android:text="Results"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/results" />
 
     <Button
         android:text="Main Menu"
