@@ -1,4 +1,4 @@
-package com.example.SustainibilitySpotlight;
+package com.example.SustainibilityStoplight;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

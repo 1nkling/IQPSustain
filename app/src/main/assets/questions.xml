@@ -1,28 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <questions>
     <question>
-        <q> Do you use a high efficiency showerhead? </q>
-        <id>0</id>
-        <respType>bool</respType>
-        <maxScore>30</maxScore>
-        <isLowGood>true</isLowGood>
-        <dimension>water</dimension>
-        <rec> Try to take the shorter showers for saving water. Don’t leave the water running unnecessarily; it can use up to 5 gallon per minute! </rec>
-        <famID>1</famID>
-        <famType>1</famType>
-        <myFamType>0</myFamType>
-    </question>
-    <question>
         <q> What is the average length of your showers (in minutes)? </q>
         <id>1</id>
         <respType>open</respType>
         <maxScore>30</maxScore>
         <isLowGood>true</isLowGood>
         <dimension>water</dimension>
+        <weight>1</weight>
         <rec> Try to take the shorter showers for saving water. Don’t leave the water running unnecessarily; it can use up to 5 gallon per minute! </rec>
-        <famID>1</famID>
-        <famType>1</famType>
-        <myFamType>1</myFamType>
     </question>
     <question>
         <q> On a scale of 1-10, with 10 being the most often, how often do you wash dishes using a washing machine as opposed to by hand? </q>
@@ -31,10 +17,8 @@
         <maxScore>10</maxScore>
         <isLowGood>false</isLowGood>
         <dimension>water</dimension>
+        <weight>1</weight>
         <rec> According to a study at the University of Bonn in Germany, dishwashers use half of energy, one-six of the water, and less soap than handwashing.  Try to use the machine for big/medium loads!</rec>
-        <famID>0</famID>
-        <famType>0</famType>
-        <myFamType>0</myFamType>
     </question>
     <question>
         <q> When using a washing machine, do you use a top-loader (yes) or front-loader(no) ?</q>
@@ -43,45 +27,177 @@
         <maxScore>1</maxScore>
         <isLowGood>false</isLowGood>
         <dimension>water</dimension>
+        <weight>1</weight>
         <rec>  Keep an eye out for front-loading machines; they use 40-75% less water than top-loaders!</rec>
-        <famID>0</famID>
-        <famType>0</famType>
-        <myFamType>0</myFamType>
     </question>
     <question>
         <q> Do you recycle?</q>
-        <id>0</id>
+        <id>4</id>
         <respType>bool</respType>
         <maxScore>1</maxScore>
         <isLowGood>false</isLowGood>
         <dimension>recycling</dimension>
+        <weight>1</weight>
         <rec>  Reduce, reuse and recycle! Cha!</rec>
-        <famID>0</famID>
-        <famType>0</famType>
-        <myFamType>0</myFamType>
     </question>
     <question>
         <q> How educated are you in terms of sustainability?</q>
-        <id>0</id>
+        <id>5</id>
         <respType>open</respType>
         <maxScore>1</maxScore>
         <isLowGood>false</isLowGood>
         <dimension>general</dimension>
+        <weight>1</weight>
         <rec>  Use this app!</rec>
-        <famID>0</famID>
-        <famType>0</famType>
-        <myFamType>0</myFamType>
     </question>
     <question>
-        <q> Do you use LED or CFI lightbulbs?</q>
-        <id>0</id>
+        <q> What is the average length of your showers (in minutes)? </q>
+        <id>1</id>
+        <respType>open</respType>
+        <maxScore>30</maxScore>
+        <isLowGood>true</isLowGood>
+        <dimension>water</dimension>
+        <weight>1</weight>
+        <rec> Try to take the shorter showers for saving water. Don’t leave the water running unnecessarily; it can use up to 5 gallon per minute! </rec>
+    </question>
+    <question>
+        <q> On a scale of 1-10, with 10 being the most often, how often do you wash dishes using a washing machine as opposed to by hand? </q>
+        <id>2</id>
+        <respType>open</respType>
+        <maxScore>10</maxScore>
+        <isLowGood>false</isLowGood>
+        <dimension>water</dimension>
+        <weight>1</weight>
+        <rec> According to a study at the University of Bonn in Germany, dishwashers use half of energy, one-six of the water, and less soap than handwashing.  Try to use the machine for big/medium loads!</rec>
+    </question>
+    <question>
+        <q> When using a washing machine, do you use a top-loader (0) or front-loader(1) ?</q>
+        <id>3</id>
+        <respType>open</respType>
+        <maxScore>1</maxScore>
+        <isLowGood>false</isLowGood>
+        <dimension>water</dimension>
+        <weight>1</weight>
+        <rec>  Keep an eye out for front-loading machines; they use 40-75% less water than top-loaders!</rec>
+    </question>
+    <question>
+        <q> When using a washing machine, do you use a front-loader (yes) or top-loader(no) ?</q>
+        <id>3</id>
         <respType>bool</respType>
         <maxScore>1</maxScore>
         <isLowGood>false</isLowGood>
+        <dimension>water</dimension>
+        <weight>1</weight>
+        <rec>  Keep an eye out for front-loading machines; they use 40-75% less water than top-loaders!</rec>
+    </question>
+    <question>
+        <q> Do you recycle?</q>
+        <id>4</id>
+        <respType>bool</respType>
+        <maxScore>1</maxScore>
+        <isLowGood>false</isLowGood>
+        <dimension>recycling</dimension>
+        <weight>1</weight>
+        <rec>  Reduce, reuse and recycle! Cha!</rec>
+    </question>
+    <question>
+        <q> How do you get rid of the majority of paper products you no longer use/need?</q>
+        <id>5</id>
+        <respType>open</respType>
+        <maxScore>1</maxScore>
+        <isLowGood>false</isLowGood>
+        <dimension>recycling</dimension>
+        <weight>1</weight>
+        <rec>  Try to recycle any paper products not needed, or reuse those that you can.</rec>
+    </question>
+    <question>
+        <q> What material utensils (Silverware) do you use most often?</q>
+        <id>5</id>
+        <respType>open</respType>
+        <maxScore>1</maxScore>
+        <isLowGood>false</isLowGood>
+        <dimension>recycling</dimension>
+        <weight>1</weight>
+        <rec>  Try to use metal utensils as much as possible and/or try to reuse plastic utensils as many times as you can to eliminate plastic waste.</rec>
+    </question>
+    <question>
+        <q> How often do you purchase bottled drinks?</q>
+        <id>5</id>
+        <respType>open</respType>
+        <maxScore>1</maxScore>
+        <isLowGood>false</isLowGood>
+        <dimension>recycling</dimension>
+        <weight>1</weight>
+        <rec>  Try to invest in a personal water bottle to eliminate plastic waste or reuse plastic waterbottles as much as possible.</rec>
+    </question>
+    <question>
+        <q> How often do you leave lights or electronics on overnight?</q>
+        <id>5</id>
+        <respType>open</respType>
+        <maxScore>1</maxScore>
+        <isLowGood>false</isLowGood>
         <dimension>electricity</dimension>
-        <rec>  Use this app!</rec>
-        <famID>0</famID>
-        <famType>0</famType>
-        <myFamType>0</myFamType>
+        <weight>1</weight>
+        <rec>  Turning off lights when not in use will lower your electric bills.</rec>
+    </question>
+    <question>
+        <q> How often do you leave lights on when not in use/not in the room?</q>
+        <id>5</id>
+        <respType>open</respType>
+        <maxScore>1</maxScore>
+        <isLowGood>false</isLowGood>
+        <dimension>electricity</dimension>
+        <weight>1</weight>
+        <rec>  Remembering to turn off unused lights throughout the day will significantly lower electric costs overtime.</rec>
+    </question>
+    <question>
+        <q> Do you leave chargers connected when not in use or overnight?</q>
+        <id>5</id>
+        <respType>open</respType>
+        <maxScore>1</maxScore>
+        <isLowGood>false</isLowGood>
+        <dimension>electricity</dimension>
+        <weight>1</weight>
+        <rec>  Chargers when not in use still use energy, unplug phone, laptop, any other chargers when not in use to reduce electricity use.</rec>
+    </question>
+    <question>
+        <q> If you own an AC unit, what year was the unit made?</q>
+        <id>5</id>
+        <respType>open</respType>
+        <maxScore>1</maxScore>
+        <isLowGood>false</isLowGood>
+        <dimension>electricity</dimension>
+        <weight>1</weight>
+        <rec>  Older AC units tend to be far less energy efficient and investing in a newer model results in both energy and monetary savings over the life of the unit.</rec>
+    </question>
+    <question>
+        <q> If you own an AC unit, how often do you use it?</q>
+        <id>5</id>
+        <respType>open</respType>
+        <maxScore>1</maxScore>
+        <isLowGood>false</isLowGood>
+        <dimension>electricity</dimension>
+        <weight>1</weight>
+        <rec>  Either reducing the time you keep the AC on or leaving it in a energy savings mode if avaliable, will both reduce electricity costs and increase the life of the AC unit.</rec>
+    </question>
+    <question>
+        <q> Do you use paper towels for cleaning around the house/dorm/apartment?</q>
+        <id>5</id>
+        <respType>open</respType>
+        <maxScore>1</maxScore>
+        <isLowGood>false</isLowGood>
+        <dimension>general</dimension>
+        <weight>1</weight>
+        <rec>  Investing in reuseable wipes/rags will reduce your paper waste and save money over time.</rec>
+    </question>
+    <question>
+        <q> How well do you think you know what is recyclable and what is not?</q>
+        <id>5</id>
+        <respType>open</respType>
+        <maxScore>1</maxScore>
+        <isLowGood>false</isLowGood>
+        <dimension>recycling</dimension>
+        <weight>1</weight>
+        <rec>  Educating yourself on what kind of recycling systems you are a part of will allow you to reduce how much waste you produce dramatically.</rec>
     </question>
 </questions>

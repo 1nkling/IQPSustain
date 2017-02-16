@@ -1,4 +1,4 @@
-package com.example.SustainibilitySpotlight;
+package com.example.SustainibilityStoplight;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,12 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.Space;
 import android.widget.Toast;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import android.graphics.Color;
+
+import com.example.SustainabilityStoplight.R;
 
 /**
  * Created by peterdebrine on 12/6/16.

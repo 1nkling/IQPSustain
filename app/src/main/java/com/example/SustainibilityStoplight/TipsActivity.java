@@ -1,14 +1,16 @@
-package com.example.SustainibilitySpotlight;
+package com.example.SustainibilityStoplight;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import com.example.SustainabilityStoplight.R;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -73,15 +75,15 @@ public class TipsActivity extends AppCompatActivity {
 
     private void color(Button temp, int i) {
         if (i % 3 == 0){
-            temp.setBackgroundColor(getColor(android.R.color.holo_red_light));
+            temp.setBackgroundColor(Color.parseColor("#ffff4444"));
         }
 
         else if (i % 3 == 1){
-            temp.setBackgroundColor(getColor(android.R.color.holo_orange_light));
+            temp.setBackgroundColor(Color.parseColor("#ffffbb33"));
         }
 
         else{
-            temp.setBackgroundColor(getColor(android.R.color.holo_green_dark));
+            temp.setBackgroundColor(Color.parseColor("#ff669900"));
         }
     }
 

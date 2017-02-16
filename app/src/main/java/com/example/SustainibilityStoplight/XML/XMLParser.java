@@ -1,7 +1,6 @@
-package com.example.SustainibilitySpotlight.XML;
+package com.example.SustainibilityStoplight.XML;
 
 import android.content.Context;
-import android.util.Log;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -16,8 +15,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
-import com.example.SustainibilitySpotlight.Struct.Response;
-import com.example.SustainibilitySpotlight.Struct.Question;
+import com.example.SustainibilityStoplight.Struct.Response;
+import com.example.SustainibilityStoplight.Struct.Question;
 
 /**
  * Created by danso on 12/10/2016.
@@ -58,7 +57,6 @@ public class XMLParser {
                         if (tagname.equalsIgnoreCase("question")) {
                             // create a new instance of employee
                             question = new Question();
-                            Log.d("makeQ", "question is made");
                         }
                         break;
 
@@ -91,6 +89,8 @@ public class XMLParser {
                             question.setFamID(Integer.parseInt(text));
                         } else if (tagname.equalsIgnoreCase("myFamType")) {
                             question.setFamID(Integer.parseInt(text));
+                        } else if (tagname.equalsIgnoreCase("weight")) {
+                        question.setWeight(Integer.parseInt(text));
                         } else if (tagname.equalsIgnoreCase("isLowGood")) {
                             if (text.equalsIgnoreCase("true"))
                                 question.setLowGood(true);

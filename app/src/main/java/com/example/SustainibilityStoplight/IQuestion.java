@@ -1,8 +1,4 @@
-package com.example.SustainibilitySpotlight;
-
-import android.content.Context;
-
-import com.example.SustainibilitySpotlight.Struct.Question;
+package com.example.SustainibilityStoplight;
 
 /**
  * Created by peterdebrine on 1/31/17.
@@ -14,6 +10,7 @@ public interface IQuestion {
 
     //TODO error/ have saved checking
     void setAnswer(int answer);
+
 
 
 }

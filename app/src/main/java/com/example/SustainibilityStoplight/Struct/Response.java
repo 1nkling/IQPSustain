@@ -1,7 +1,6 @@
-package com.example.SustainibilitySpotlight.Struct;
+package com.example.SustainibilityStoplight.Struct;
 
 import android.content.Context;
-import android.widget.SeekBar;
 
 /**
  * Created by peterdebrine on 1/22/17.
@@ -9,7 +8,7 @@ import android.widget.SeekBar;
 
 public class Response {
 
-    int resp;
+    int resp = -1;
     int id;
     String dim;
 

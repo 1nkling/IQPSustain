@@ -3,34 +3,60 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:text="TextView"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/Name"
-        android:textSize="40sp" />
+        android:layout_height="match_parent">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/content"></LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-    <Button
-        android:text="Back"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/back" />
-    <Button
-        android:text="Results"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/results" />
+            <TextView
+                android:text="TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Name"
+                android:textSize="40sp" />
 
-    <Button
-        android:text="Main Menu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/main"
-        android:onClick="openNewMain (Main_NewActivity)" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/content">
+
+            </LinearLayout>
+
+            <TextView
+                android:text="lmao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/score"
+                android:textAlignment="center"
+                android:textSize="24sp" />
+
+            <TextView
+                android:text="Your overall score is: "
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/intro"
+                android:textSize="24sp"
+                android:textAlignment="center" />
+
+            <Button
+                android:text="Back"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/back" />
+
+            <Button
+                android:text="Main Menu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/main"
+                android:onClick="openNewMain (Main_NewActivity)" />
+
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>

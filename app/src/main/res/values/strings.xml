@@ -15,5 +15,6 @@
     <string name="menu_settings">Settings</string>
     <string name="appname">Sustainability Spotlight</string>
     <string name="title_activity_splash">SplashActivity</string>
+    <string name="nameWithSpaces">The Sustainability Stoplight</string>
     >>>>>>> 276a40d4b02144cb41ba532d6fc3083d0f0668e4
 </resources>

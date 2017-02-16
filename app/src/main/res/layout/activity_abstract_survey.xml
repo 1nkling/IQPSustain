@@ -5,11 +5,11 @@
     android:layout_height="fill_parent">
     <!-- Here you put the rest of your current view-->
     <LinearLayout
-        android:id="@+id/water_activity"
+        android:id="@+id/layout"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <TextView
@@ -28,7 +28,9 @@
             android:layout_height="match_parent"
             android:id="@+id/content"
             android:scrollbarAlwaysDrawHorizontalTrack="false"
-            android:scrollbarAlwaysDrawVerticalTrack="true"></LinearLayout>
+            android:scrollbarAlwaysDrawVerticalTrack="true">
+
+        </LinearLayout>
 
         <Button
             android:layout_width="match_parent"
@@ -46,7 +48,13 @@
             android:id="@+id/back" />
 
         <Button
-            android:text="Main Menu (DOES NOT SAVE ANSWERS)"
+            android:text="Back to Dimensions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/survey" />
+
+        <Button
+            android:text="Main Menu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/main"

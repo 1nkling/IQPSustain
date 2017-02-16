@@ -1,13 +1,12 @@
-package com.example.SustainibilitySpotlight;
+package com.example.SustainibilityStoplight;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import com.example.SustainibilitySpotlight.Struct.Question;
+import com.example.SustainibilityStoplight.Struct.Question;
 
 /**
  * Created by peterdebrine on 1/31/17.
@@ -18,9 +17,11 @@ public class BooleanQuestion extends RadioGroup implements IQuestion {
     Question q;
     RadioButton yes;
     RadioButton no;
+    Context c;
 
     public BooleanQuestion(Question q, int resp, Context context) {
         super(context);
+        c = context;
         this.q = q;
         this.setOrientation(LinearLayout.HORIZONTAL);
         yes = new RadioButton(context);
@@ -41,7 +42,7 @@ public class BooleanQuestion extends RadioGroup implements IQuestion {
             }
         });
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
+                LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
         this.setLayoutParams(params);
         this.addView(yes);
         this.addView(no);
@@ -51,18 +52,26 @@ public class BooleanQuestion extends RadioGroup implements IQuestion {
     public int getAnswer(){
         if (yes.isChecked()){
             return 1;
+        } else if (no.isChecked()){
+            return 0;
         }
-        return 0;
+        return -1;
     }
 
     @Override
     public void setAnswer(int answer) {
         if (answer == 1) {
             yes.toggle();
-            no.setChecked(false);
-        } else {
+        } else if (answer == 0) {
             no.toggle();
+        } else {
             yes.setChecked(false);
+            no.setChecked(false);
         }
     }
+
+    public Question getQuestion(){
+        return q;
+    }
+
 }

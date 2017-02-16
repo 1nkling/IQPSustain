@@ -1,4 +1,4 @@
-package com.example.SustainibilitySpotlight.Struct;
+package com.example.SustainibilityStoplight.Struct;
 
 /**
  * Created by danso on 12/11/2016.
@@ -16,6 +16,12 @@ public class Question {
     private int famID;
     private int famType;
     private int myFamType;
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    private int weight;
 
     public int getMyFamType() {
         return myFamType;
@@ -98,5 +104,9 @@ public class Question {
 
     public void setFamID(int famID) {
         this.famID = famID;
+    }
+
+    public int getWeight() {
+        return weight;
     }
 }

@@ -1,9 +1,9 @@
-package com.example.SustainibilitySpotlight.XML;
+package com.example.SustainibilityStoplight.XML;
 
 import android.content.Context;
 import android.support.test.espresso.core.deps.guava.base.Charsets;
 
-import com.example.SustainibilitySpotlight.Struct.Response;
+import com.example.SustainibilityStoplight.Struct.Response;
 
 import java.io.File;
 import java.io.FileOutputStream;

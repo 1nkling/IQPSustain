@@ -1,34 +1,28 @@
-package com.example.SustainibilitySpotlight.Struct;
+package com.example.SustainibilityStoplight.Struct;
 
 import android.content.Context;
-import android.util.Log;
 import android.widget.LinearLayout;
-import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.example.SustainibilitySpotlight.BarQuestion;
-import com.example.SustainibilitySpotlight.BooleanQuestion;
-import com.example.SustainibilitySpotlight.IQuestion;
+import com.example.SustainibilityStoplight.BarQuestion;
+import com.example.SustainibilityStoplight.BooleanQuestion;
+import com.example.SustainibilityStoplight.IQuestion;
 
 /**
  * Created by peterdebrine on 1/22/17.
  */
 
-public class QuestionAndResponse {
+public class QuestionAndResponse extends LinearLayout {
 
     Question question;
     Response resp;
     int id;
-    LinearLayout content;
     TextView q;
+    IQuestion iq;
 
 
     public LinearLayout getContent() {
-        return content;
-    }
-
-    public void setContent(LinearLayout content) {
-        this.content = content;
+        return this;
     }
 
     public TextView getQ() {
@@ -40,31 +34,40 @@ public class QuestionAndResponse {
     }
 
     public QuestionAndResponse(Question question, Response resp, Context c) {
+        super(c);
         this.question = question;
         this.resp = resp;
         q = new TextView(c);
         q.setText(question.getQ());
-        content = new LinearLayout(c);
-        content.setOrientation(LinearLayout.VERTICAL);
-        content.addView(q);
+        this.setOrientation(LinearLayout.VERTICAL);
+        this.addView(q);
         if (question.getRespType().equals("open")){
             BarQuestion bq = new BarQuestion(question, resp.getResp(), c);
             bq.setAnswer(resp.getResp());
-            content.addView(bq);
+            iq = bq;
+            this.addView(bq);
         } else if (question.getRespType().equals("bool")){
             BooleanQuestion bq = new BooleanQuestion(question, resp.getResp(), c);
             bq.setAnswer(resp.getResp());
-            content.addView(bq);
+            iq = bq;
+            this.addView(bq);
         }
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        LayoutParams params = new LayoutParams(
+                LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
         params.setMargins(10, 20, 10, 10);
-        content.setLayoutParams(params);
+        this.setLayoutParams(params);
         if (resp.getId() == question.getId()){
             this. id = resp.getId();
         }
         else this.id = -999;
 
+    }
+
+    public IQuestion getIq(){
+        if (iq == null){
+            throw new RuntimeException("IQuestion not set");
+        }
+        return this.iq;
     }
 
     public Question getQuestion() {
@@ -103,5 +106,15 @@ public class QuestionAndResponse {
         return false;
     }
 
+    public int getScore(){
+        int w = question.getWeight();
+        int score = w * iq.getAnswer();
+        return score;
+    }
 
+    public int getMax() {
+        int max;
+        max = question.getWeight() * iq.getAnswer();
+        return max;
+    }
 }

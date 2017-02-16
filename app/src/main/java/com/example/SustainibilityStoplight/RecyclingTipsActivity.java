@@ -1,4 +1,4 @@
-package com.example.SustainibilitySpotlight;
+package com.example.SustainibilityStoplight;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,10 +8,12 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.SustainabilityStoplight.R;
+
 /**
  * Created by peterdebrine on 12/13/16.
  */
-public class WaterTipsActivity extends AppCompatActivity {
+public class RecyclingTipsActivity extends AppCompatActivity {
     LinearLayout content;
     View back;
     TextView name;
@@ -25,7 +27,7 @@ public class WaterTipsActivity extends AppCompatActivity {
 
     private void init() {
         name = (TextView) findViewById(R.id.Name);
-        name.setText("Water Tips");
+        name.setText("Recycling Tips");
         content = (LinearLayout) findViewById(R.id.content);
         back = findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
@@ -34,14 +36,6 @@ public class WaterTipsActivity extends AppCompatActivity {
                 openMainTips();
             }
         });
-        TextView tip1 = new TextView(this);
-        tip1.setText("Reducing the flow of your appliances is critical, Low flow everything!!");
-        TextView tip2 = new TextView(this);
-        tip2.setText("Watering your yard at night saves lots of water otherwise lsot to evaporation");
-        tip1.setTextSize(20);
-        tip2.setTextSize(2);
-        content.addView(tip1);
-        content.addView(tip2);
     }
 
     private void openMainTips() {

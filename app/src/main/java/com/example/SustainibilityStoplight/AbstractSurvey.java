@@ -1,4 +1,4 @@
-package com.example.SustainibilitySpotlight;
+package com.example.SustainibilityStoplight;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,18 +11,19 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.SustainibilitySpotlight.Struct.Question;
-import com.example.SustainibilitySpotlight.Struct.QuestionAndResponse;
-import com.example.SustainibilitySpotlight.Struct.Response;
-import com.example.SustainibilitySpotlight.XML.XMLWriter;
+import com.example.SustainabilityStoplight.R;
+import com.example.SustainibilityStoplight.Struct.Question;
+import com.example.SustainibilityStoplight.Struct.QuestionAndResponse;
+import com.example.SustainibilityStoplight.Struct.Response;
+import com.example.SustainibilityStoplight.XML.XMLWriter;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
+
+import static android.view.View.GONE;
 
 /**
  * Created by peterdebrine on 12/15/16.
@@ -34,11 +35,11 @@ public class AbstractSurvey extends AppCompatActivity {
     Button main;
     Button next;
     ViewGroup content;
-    Button submit;
-    Button status;
+    Button survey;
+    SurveyMap map;
     ArrayList<QuestionAndResponse> qAndA = new ArrayList<>();
-    ArrayList<Question> questions = new ArrayList<Question>();
-    ArrayList<EditText> editTextList = new ArrayList<>();
+    ArrayList<Question> questions = new ArrayList<>();
+
     private String name; // Its dimension
 
     @Override
@@ -51,9 +52,10 @@ public class AbstractSurvey extends AppCompatActivity {
         dimName.setText(this.name);
         content = (ViewGroup) findViewById(R.id.content);
         next = (Button) findViewById(R.id.next);
+        survey = (Button) findViewById(R.id.survey);
         back = (Button) findViewById(R.id.back);
         main = (Button) findViewById(R.id.main);
-        back.setOnClickListener(new View.OnClickListener() {
+        survey.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 goBack();
@@ -75,12 +77,32 @@ public class AbstractSurvey extends AppCompatActivity {
                 }
             }
         });
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                prev();
+            }
+        });
         init();
     }
 
+    private void prev() {
+        String nextDim;
+        try{
+            nextDim = map.getPrevDim(name);
+        }
+        catch(IOException ie){
+            openMainNew();
+            return;
+        }
+        saveAnswers();
+        Intent intent = new Intent(this, AbstractSurvey.class);
+        intent.putExtra(SurveyActivity.EXTRA_MESSAGE, nextDim);
+        startActivity(intent);
+    }
+
     private void next() throws IOException {
-        SurveyMap map = new SurveyMap(getApplicationContext());
-        String nextDim = "";
+        String nextDim;
         try{
             nextDim = map.getNextDim(name);
         }
@@ -129,7 +151,7 @@ public class AbstractSurvey extends AppCompatActivity {
     protected void init(){
         try{
             // Gets a survey map (aka its list of questions)
-            SurveyMap map = new SurveyMap(getApplicationContext());
+            map = new SurveyMap(getApplicationContext());
             questions = map.getQuestions(this.name);
             qAndA = map.getQRs(name);
         }
@@ -144,6 +166,16 @@ public class AbstractSurvey extends AppCompatActivity {
             openMainNew();
         }
 
+        try {
+            map.getPrevDim(name);
+        } catch (IOException e) {
+            back.setVisibility(GONE);
+        }
+        try {
+            map.getNextDim(name);
+        } catch (IOException e) {
+            next.setVisibility(GONE);
+        }
         populate();
     }
 

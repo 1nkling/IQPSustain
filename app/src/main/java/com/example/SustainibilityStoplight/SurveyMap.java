@@ -1,15 +1,12 @@
-package com.example.SustainibilitySpotlight;
+package com.example.SustainibilityStoplight;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Environment;
-import android.util.Log;
 
-import com.example.SustainibilitySpotlight.Struct.Question;
-import com.example.SustainibilitySpotlight.Struct.Response;
-import com.example.SustainibilitySpotlight.Struct.QuestionAndResponse;
-import com.example.SustainibilitySpotlight.XML.XMLParser;
+import com.example.SustainibilityStoplight.Struct.Question;
+import com.example.SustainibilityStoplight.Struct.Response;
+import com.example.SustainibilityStoplight.Struct.QuestionAndResponse;
+import com.example.SustainibilityStoplight.XML.XMLParser;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,7 +23,7 @@ public class SurveyMap {
     private HashMap<String, ArrayList<QuestionAndResponse>> QandRMap;
     private ArrayList<Question> questions;
     ArrayList<String> dims;
-     Context c;
+    Context c;
 
 
     SurveyMap(Context context) throws IOException {
@@ -38,7 +35,7 @@ public class SurveyMap {
         questionsMap = new HashMap<>();
         responsesMap = new HashMap<>();
         QandRMap = new HashMap<>();
-        SharedPreferences sustPref = context.getSharedPreferences("SustSpotlight", 0);
+        SharedPreferences sustPref = context.getSharedPreferences("SustStoplight", 0);
 
         for (; i < size; i++){
             String name = questions.get(i).getDimension();
@@ -72,8 +69,15 @@ public class SurveyMap {
         for (String dim: dims){
             ArrayList<QuestionAndResponse> qrs = new ArrayList<>();
             for (i = 0; i< questionsMap.get(dim).size(); i++){
-                qrs.add(new QuestionAndResponse(questionsMap.get(dim).get(i),
-                        responsesMap.get(dim).get(i), context));
+                ArrayList<Question> quest = questionsMap.get(dim);
+                ArrayList<Response> r = responsesMap.get(dim);
+                if(i == r.size()){
+                    r.add(new Response(quest.get(i), context));
+                }
+                responsesMap.remove(dim);
+                responsesMap.put(dim, r);
+                qrs.add(new QuestionAndResponse(quest.get(i),
+                        r.get(i), context));
             }
             QandRMap.put(dim, qrs);
         }
@@ -123,6 +127,16 @@ public class SurveyMap {
         for (int i = 0; i < dims.size()-  1; i++){
             if (dims.get(i).equals(name)){
                 return dims.get(i + 1);
+            }
+        }
+        throw new IOException();
+    }
+
+    public String getPrevDim(String name) throws IOException {
+        // I starts at one so that you cannot start out of bounds
+        for (int i = 1; i < dims.size(); i++){
+            if (dims.get(i).equals(name)){
+                return dims.get(i - 1);
             }
         }
         throw new IOException();

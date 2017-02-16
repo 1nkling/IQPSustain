@@ -1,23 +1,19 @@
-package com.example.SustainibilitySpotlight;
+package com.example.SustainibilityStoplight;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.SustainibilitySpotlight.Struct.Question;
-import com.example.SustainibilitySpotlight.Struct.QuestionAndResponse;
-import com.example.SustainibilitySpotlight.Struct.Response;
-import com.example.SustainibilitySpotlight.XML.XMLWriter;
+import com.example.SustainabilityStoplight.R;
+import com.example.SustainibilityStoplight.Struct.Question;
+import com.example.SustainibilityStoplight.Struct.QuestionAndResponse;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -30,11 +26,13 @@ public class GeneralTipsActivity extends AppCompatActivity {
 
     Button back;
     Button main;
-    Button results;
+    TextView score;
     ViewGroup content;
     ArrayList<QuestionAndResponse> qAndA = new ArrayList<>();
     ArrayList<Question> questions = new ArrayList<Question>();
     private String name; // Its dimension
+    int val = 0;
+    int max = 0;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,7 +45,7 @@ public class GeneralTipsActivity extends AppCompatActivity {
         content = (ViewGroup) findViewById(R.id.content);
         back = (Button) findViewById(R.id.back);
         main = (Button) findViewById(R.id.main);
-        results = (Button) findViewById(R.id.results);
+        score = (TextView) findViewById(R.id.score);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,12 +58,19 @@ public class GeneralTipsActivity extends AppCompatActivity {
                 openMainNew();
             }
         });
-        results.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                toResults();
+        try {
+            SurveyMap map = new SurveyMap(getApplicationContext());
+            ArrayList<QuestionAndResponse> qrs = map.getQRs(name);
+            for (QuestionAndResponse qr : qrs){
+                val += qr.getScore();
+                max += qr.getMax();
             }
-        });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        val = val*100;
+        val = val/max;
+        score.setText(val + "%");
         init();
     }
 

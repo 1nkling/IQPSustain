@@ -1,4 +1,4 @@
-package com.example.SustainibilitySpotlight;
+package com.example.SustainibilityStoplight;
 
 import org.junit.Test;
 
