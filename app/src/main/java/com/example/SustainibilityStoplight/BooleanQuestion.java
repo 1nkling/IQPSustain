@@ -19,6 +19,7 @@ public class BooleanQuestion extends RadioGroup implements IQuestion {
     RadioButton yes;
     RadioButton no;
     Context c;
+    int answer;
 
     public BooleanQuestion(Question q, int resp, Context context) {
         super(context);
@@ -30,16 +31,31 @@ public class BooleanQuestion extends RadioGroup implements IQuestion {
         yes.setText("Yes");
         no.setText("No");
         setAnswer(resp);
+        if (resp == 1){
+            yes.toggle();
+        } else if (resp == 0){
+            no.toggle();
+        }
         no.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 setAnswer(0);
+                yes.setChecked(false);
+                RadioButton rb = (RadioButton) view;
+                if (!(rb.isChecked())){
+                    rb.toggle();
+                }
             }
         });
         yes.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 setAnswer(1);
+                no.setChecked(false);
+                RadioButton rb = (RadioButton) view;
+                if (!(rb.isChecked())){
+                    rb.toggle();
+                }
             }
         });
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
@@ -47,32 +63,17 @@ public class BooleanQuestion extends RadioGroup implements IQuestion {
         this.setLayoutParams(params);
         this.addView(yes);
         this.addView(no);
+
     }
 
-    //TODO maybe do more error checking
+
     public int getAnswer(){
-        int retVal = -1;
-        if (yes.isChecked()){
-            retVal = 1;
-        } else if (no.isChecked()){
-            retVal = 0;
-        }
-        Log.wtf("Evin", "" + retVal);
-        return retVal;
+        return answer;
     }
 
     @Override
     public void setAnswer(int answer) {
-        if (answer == 1) {
-            yes.setChecked(true);
-            no.setChecked(false);
-        } else if (answer == 0) {
-            yes.setChecked(false);
-            no.setChecked(true);
-        } else {
-            yes.setChecked(false);
-            no.setChecked(false);
-        }
+        this.answer = answer;
     }
 
     public Question getQuestion(){
