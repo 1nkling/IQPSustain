@@ -22,8 +22,9 @@ public abstract class iFamily extends LinearLayout {
     // Should never be called
     public iFamily(ArrayList<QuestionAndResponse> src) {
         super(src.get(0).getContext());
+        this.setOrientation(LinearLayout.VERTICAL);
         LayoutParams params = new LayoutParams(
-                LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+                LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
         this.setLayoutParams(params);
         this.qrs = src;
         this.dim = qrs.get(0).getQuestion().getDimension();
@@ -38,4 +39,25 @@ public abstract class iFamily extends LinearLayout {
     abstract int getScore();
 
     abstract void update(iFamily fam);
+
+    public void setResponses(ArrayList<Response> r){
+        int i = 0;
+        for (Response resp: r){
+            for (QuestionAndResponse qr : qrs){
+                if (resp.getId() == qr.getId()){
+                    qr.setResp(resp);
+                    break;
+                }
+            }
+        }
+    }
+
+    public String toString(){
+        String resp = " ";
+        for (QuestionAndResponse qr : qrs){
+            resp = resp + qr.toString();
+            resp = resp + " ";
+        }
+        return resp;
+    }
 }

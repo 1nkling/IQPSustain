@@ -15,16 +15,17 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="10dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="11dp">
 
         <TextView
-            android:text="Welcome to the Sustainability Spotlight!"
+            android:text="Welcome to the Sustainability Stoplight!"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/welcome"
-            android:textSize="30sp"
+            android:textSize="24sp"
             android:textAlignment="center" />
 
         <Button
@@ -33,7 +34,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/learn"
             android:padding="30dp"
-            android:backgroundTint="@android:color/holo_red_light" />
+            android:backgroundTint="@android:color/holo_red_light"
+            android:textSize="24sp" />
 
         <Button
             android:text="Tips for Improvement"
@@ -41,15 +43,18 @@
             android:layout_height="wrap_content"
             android:id="@+id/tips"
             android:padding="30dp"
-            android:backgroundTint="@android:color/holo_orange_light" />
+            android:backgroundTint="@android:color/holo_orange_light"
+            android:textSize="24sp" />
 
         <Button
             android:text="Begin the Survey!"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/begin"
-            android:padding="30dp"
-            android:backgroundTint="@android:color/holo_green_dark" />
+            android:padding="40dp"
+            android:backgroundTint="@android:color/holo_green_dark"
+            android:textSize="24sp"
+            android:textAlignment="center" />
 
     </LinearLayout>
 </RelativeLayout>

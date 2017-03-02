@@ -86,9 +86,9 @@ public class XMLParser {
                             question.setFamID(Integer.parseInt(text));
                         }
                         else if (tagname.equalsIgnoreCase("famType")) {
-                            question.setFamID(Integer.parseInt(text));
+                            question.setFamType(Integer.parseInt(text));
                         } else if (tagname.equalsIgnoreCase("myFamType")) {
-                            question.setFamID(Integer.parseInt(text));
+                            question.setMyFamType(Integer.parseInt(text));
                         } else if (tagname.equalsIgnoreCase("weight")) {
                         question.setWeight(Integer.parseInt(text));
                         } else if (tagname.equalsIgnoreCase("isLowGood")) {

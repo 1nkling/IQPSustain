@@ -17,7 +17,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/Name"
-                android:textSize="40sp" />
+                android:textSize="40sp"
+                android:textAlignment="center"
+                android:textAllCaps="true" />
 
             <LinearLayout
                 android:orientation="vertical"
@@ -28,6 +30,14 @@
             </LinearLayout>
 
             <TextView
+                android:text="Your overall score is: "
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/intro"
+                android:textSize="24sp"
+                android:textAlignment="center" />
+
+            <TextView
                 android:text="lmao"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -36,10 +46,10 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:text="Your overall score is: "
+                android:text="TextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/intro"
+                android:id="@+id/praise"
                 android:textSize="24sp"
                 android:textAlignment="center" />
 
@@ -48,6 +58,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/back" />
+
+            <Button
+                android:text="Next"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/next" />
 
             <Button
                 android:text="Main Menu"

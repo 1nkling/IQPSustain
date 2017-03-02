@@ -23,19 +23,45 @@
             android:text="Here are your results!"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/welcome" />
+            android:id="@+id/welcome"
+            android:textSize="30sp"
+            android:textAlignment="center" />
 
         <TextView
-            android:text="results here (probably more than a single text box)"
+            android:text="Your overall score is:"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/results" />
+            android:id="@+id/description"
+            android:textSize="24sp"
+            android:textAlignment="center" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/score"
+            android:textSize="24sp"
+            android:textAlignment="center" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/praise"
+            android:textSize="24sp"
+            android:textAlignment="center" />
 
         <Button
             android:text="Back"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/back" />
+
+        <Button
+            android:text="Submit Results"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/submit" />
 
     </LinearLayout>
 </RelativeLayout>

@@ -17,14 +17,10 @@
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
-
-        <TextView
-            android:text="Welcome to the survey!"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/welcome"
-            android:textSize="30sp" />
+        android:layout_alignParentStart="true"
+        android:paddingBottom="10dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp">
 
         <LinearLayout
             android:orientation="vertical"
@@ -36,6 +32,16 @@
             android:text="Main Menu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/back" />
+            android:id="@+id/back"
+            android:textSize="30sp"
+            android:background="?attr/colorButtonNormal" />
+
+        <Button
+            android:text="Overall Results"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/submit"
+            android:textSize="30sp"
+            android:background="@android:color/holo_green_dark" />
     </LinearLayout>
 </RelativeLayout>

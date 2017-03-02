@@ -1,5 +1,6 @@
 package com.example.SustainibilityStoplight;
 
+import com.example.SustainibilityStoplight.Struct.Question;
 import com.example.SustainibilityStoplight.Struct.QuestionAndResponse;
 import com.example.SustainibilityStoplight.Struct.Response;
 
@@ -25,7 +26,8 @@ public class GenericFamily extends iFamily {
     @Override
     ArrayList<Response> getResponses() {
         ArrayList<Response> r = new ArrayList<>();
-        for (QuestionAndResponse qr : qrs) {
+        for (int i = 0; i < this.getChildCount(); i++) {
+            QuestionAndResponse qr = (QuestionAndResponse) this.getChildAt(i);
             r.add(qr.getResp());
         }
         return r;

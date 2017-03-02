@@ -50,6 +50,8 @@ public class SurveyActivity extends AppCompatActivity {
         });
         SurveyMap m = new SurveyMap(getApplicationContext());
         ArrayList<String> dims = m.getDims();
+        Button submit = (Button) findViewById(R.id.submit);
+        submit.setVisibility(View.GONE);
         for (int i = 0; i < dims.size(); i++){
             Button temp = new Button(getApplicationContext());
             temp.setText(dims.get(i));

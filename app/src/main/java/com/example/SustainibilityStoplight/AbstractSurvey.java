@@ -9,8 +9,6 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +20,7 @@ import com.example.SustainibilityStoplight.XML.XMLWriter;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import static android.view.View.GONE;
 
@@ -39,6 +38,7 @@ public class AbstractSurvey extends AppCompatActivity {
     SurveyMap map;
     ArrayList<QuestionAndResponse> qAndA = new ArrayList<>();
     ArrayList<Question> questions = new ArrayList<>();
+    ArrayList<iFamily> fams = new ArrayList<>();
 
     private String name; // Its dimension
 
@@ -130,18 +130,20 @@ public class AbstractSurvey extends AppCompatActivity {
     private void saveAnswers() {
         updateResps();
         ArrayList<Response> temp = new ArrayList<>();
-        for (int i = 0; i < qAndA.size(); i++){
-            temp.add(i, qAndA.get(i).getResp());
+        int j = 0;
+        for (int i = 0; i < fams.size(); i++){
+            for (Response r : fams.get(i).getResponses()) {
+                Log.d("Saving asnwer: ", r.toString());
+                temp.add(r);
+            }
         }
         XMLWriter writer = new XMLWriter();
         try {
             writer.writeResponses(temp, getApplicationContext(), this.name);
-            SharedPreferences.Editor editor = getSharedPreferences("SustSpotlight", 0).edit();
+            SharedPreferences.Editor editor = getSharedPreferences("SustStoplight", 0).edit();
             editor.putBoolean(name, true);
             editor.putBoolean("saved", true);
             editor.commit();
-            Log.d("saveAnswers","Saved answers");
-            Log.d("saveAnswers",temp.toString());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -176,7 +178,36 @@ public class AbstractSurvey extends AppCompatActivity {
         } catch (IOException e) {
             next.setVisibility(GONE);
         }
+        setupFams();
         populate();
+    }
+
+    private void setupFams() {
+        HashMap<Integer, ArrayList<QuestionAndResponse>> famMap = new HashMap<>();
+        for (QuestionAndResponse qr : qAndA){
+            if (famMap.containsKey(qr.getQuestion().getFamID())){
+                famMap.get(qr.getQuestion().getFamID()).add(qr);
+            } else {
+                ArrayList<QuestionAndResponse> temp = new ArrayList<>();
+                temp.add(qr);
+                famMap.put(qr.getQuestion().getFamID(), temp);
+            }
+        }
+        for (ArrayList<QuestionAndResponse> qrList : famMap.values()){
+            iFamily fam = makeFam(qrList);
+            Log.d("Make Fam: ", fam.toString());
+            fams.add(fam);
+        }
+    }
+
+    private iFamily makeFam(ArrayList<QuestionAndResponse> temp) {
+        if (temp.get(0).getQuestion().getFamType() == 0){
+            return new GenericFamily(temp);
+        } else if (temp.get(0).getQuestion().getFamType() == 1){
+            return new SCM(temp);
+        }else if (temp.get(0).getQuestion().getFamType() == 2){
+            return new BooleanFamily(temp);
+        } else throw new RuntimeException("FamType not handled");
     }
 
     //returns to the home menu
@@ -188,8 +219,8 @@ public class AbstractSurvey extends AppCompatActivity {
 
     // Populates this activity with its respective questions
     public void populate() {
-        for (int i = 0; i < qAndA.size(); i++){
-            content.addView(qAndA.get(i).getContent());
+        for (int i = 0; i < fams.size(); i++){
+            content.addView(fams.get(i));
         }
 
     }
@@ -197,14 +228,11 @@ public class AbstractSurvey extends AppCompatActivity {
     private void updateResps(){
         int i = 0;
         for (; i < content.getChildCount(); i++){
-            LinearLayout qAndR = (LinearLayout) content.getChildAt(i);
-            IQuestion iq = (IQuestion) qAndR.getChildAt(1);
-            int resp = iq.getAnswer();
-            qAndA.get(i).getResp().setResp(resp);
-
+            iFamily fam = (iFamily) content.getChildAt(i);
+            ArrayList<Response> r = fam.getResponses();
+            fams.get(i).setResponses(r);
         }
     }
-
 
 
 }

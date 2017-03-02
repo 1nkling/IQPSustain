@@ -79,7 +79,7 @@ public class Question {
     }
 
     public String toString() {
-        return q + respType + maxScore + rec;
+        return "Question: " + q + " ID: " + id + " famID " + famID + " ";
     }
 
     public boolean isLowGood() {

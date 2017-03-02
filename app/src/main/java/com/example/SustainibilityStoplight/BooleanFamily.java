@@ -1,5 +1,6 @@
 package com.example.SustainibilityStoplight;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 
@@ -7,6 +8,7 @@ import com.example.SustainibilityStoplight.Struct.QuestionAndResponse;
 import com.example.SustainibilityStoplight.Struct.Response;
 
 import java.util.ArrayList;
+import java.util.Stack;
 
 
 /**
@@ -19,10 +21,10 @@ public class BooleanFamily extends iFamily implements View.OnClickListener {
     TreeNode currentNode;
 
     // Root of the tree, seemed neat
-    TreeNode root = new TreeNode(0);
+    TreeNode root;
 
-    // Functionally a stack of nodes
-    ArrayList<TreeNode> nodes = new ArrayList<>();
+    // A stack of nodes
+    Stack<TreeNode> nodes;
 
 
     BooleanFamily(ArrayList<QuestionAndResponse> qrs){
@@ -31,12 +33,13 @@ public class BooleanFamily extends iFamily implements View.OnClickListener {
 
     @Override
     void init() {
+        nodes = new Stack<TreeNode>();
         ArrayList<QuestionAndResponse> ends = new ArrayList<>();
         ArrayList<QuestionAndResponse> parents = new ArrayList<>();
         for (QuestionAndResponse qr : qrs){
             int famType = qr.getQuestion().getMyFamType();
             if (famType == 0){
-                root.root = qr;
+                root = new TreeNode(qr);
             } else if (famType < 0){
                 ends.add(qr);
             } else if(famType > 0){
@@ -73,15 +76,13 @@ public class BooleanFamily extends iFamily implements View.OnClickListener {
         ArrayList<TreeNode> currentLevel = new ArrayList<>();
 
         for (QuestionAndResponse qr : ends){
-            TreeNode node = new TreeNode(qr.getQuestion().getMyFamType());
-            node.root = qr;
+            TreeNode node = new TreeNode(qr);
             currentLevel.add(node);
         }
         while (parents.size() != 0) {
             ArrayList<TreeNode> newLevel = new ArrayList<>();
             while(currentLevel.size() != 0){
-                TreeNode node = new TreeNode(parents.get(0).getQuestion().getMyFamType());
-                node.root = parents.remove(0);
+                TreeNode node = new TreeNode(parents.remove(0));
                 TreeNode node1 = currentLevel.remove(0);
                 TreeNode node2 = currentLevel.remove(0);
                 node.right = node1;
@@ -94,19 +95,25 @@ public class BooleanFamily extends iFamily implements View.OnClickListener {
 
         this.root.right = currentLevel.remove(0);
         this.root.left = currentLevel.remove(0);
-        currentNode = root;
+        currentNode = new TreeNode(root);
         this.addView();
+        while(currentNode.root.getResp().getResp() != -1){
+            nodes.push(currentNode);
+            next();
+        }
     }
 
     private void next() {
-        nodes.add(currentNode);
-        int temp = currentNode.root.getIq().getAnswer();
-        if (temp == 1){
-            currentNode = currentNode.right;
-        } else if (temp == 0){
-            currentNode = currentNode.left;
-        } if (currentNode.nodeID >= 0){
-            addView();
+        int temp = currentNode.root.getResp().getResp();
+        if (currentNode.nodeID >= 0) {
+            if (temp == 1) {
+                currentNode = new TreeNode(currentNode.right);
+            } else if (temp == 0) {
+                currentNode = new TreeNode(currentNode.left);
+            }
+            if (nodes.peek().nodeID >= 0 & currentNode != null) {
+                addView();
+            }
         }
     }
 
@@ -125,7 +132,7 @@ public class BooleanFamily extends iFamily implements View.OnClickListener {
         for (TreeNode n : nodes){
             score += n.root.getScore();
         }
-        return  score;
+        return score;
     }
 
     @Override
@@ -139,17 +146,19 @@ public class BooleanFamily extends iFamily implements View.OnClickListener {
         iq.getChildAt(0).setOnClickListener(this);
         iq.getChildAt(1).setOnClickListener(this);
         this.addView(qr);
+        Log.d("Adding view: ", qr.toString());
     }
 
     @Override
     public void onClick(View view) {
-        int clicked = ((BooleanQuestion) view).getQuestion().getMyFamType();
-        if (clicked < currentNode.nodeID & clicked < 0) {
-            while (clicked < nodes.get(0).nodeID) {
-                nodes.remove(0);
-            }
-            currentNode = nodes.get(0);
+        nodes.push(currentNode);
+        BooleanQuestion clicked = (BooleanQuestion) view.getParent();
+        while (clicked.getQuestion().getMyFamType() != nodes.peek().nodeID) {
+            Log.d("Trying to remove: ", clicked.toString());
+            nodes.peek().root.getIq().setAnswer(-1);
+            removeView(nodes.pop().root);
         }
+        currentNode = nodes.peek();
         next();
     }
 
@@ -159,15 +168,32 @@ public class BooleanFamily extends iFamily implements View.OnClickListener {
         src.add(i+1, temp);
     }
 
+    @Override
+    public void setResponses(ArrayList<Response> r){
+        currentNode = root;
+        for (Response resp : r){
+            currentNode.root.setResp(resp);
+            next();
+        }
+    }
+
     private class TreeNode {
 
         QuestionAndResponse root;
-        TreeNode left;
-        TreeNode right;
+        TreeNode left; // no
+        TreeNode right; // yes
         int nodeID;
 
-        TreeNode(int id){
-            this.nodeID = id;
+        TreeNode(QuestionAndResponse qr){
+            this.root = qr;
+            this.nodeID = qr.getQuestion().getMyFamType();
+        }
+
+        TreeNode(TreeNode node) {
+            this.root = node.root;
+            this.left = node.left;
+            this.right = node.right;
+            this.nodeID = root.getQuestion().getMyFamType();
         }
     }
 

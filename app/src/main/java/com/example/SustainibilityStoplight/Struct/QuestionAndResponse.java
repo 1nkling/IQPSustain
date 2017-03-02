@@ -79,6 +79,7 @@ public class QuestionAndResponse extends LinearLayout {
     }
 
     public Response getResp() {
+        resp.setResp(iq.getAnswer());
         return resp;
     }
 
@@ -95,7 +96,7 @@ public class QuestionAndResponse extends LinearLayout {
     }
 
     public String toString(){
-        return "q: " + this.q.toString() + " resp: " + this.resp.toString();
+        return " question: " + this.question.toString() + " resp: " + this.resp.toString();
     }
 
     public boolean needsRec(){
@@ -114,7 +115,7 @@ public class QuestionAndResponse extends LinearLayout {
 
     public int getMax() {
         int max;
-        max = question.getWeight() * iq.getAnswer();
+        max = question.getWeight() * question.getMaxScore();
         return max;
     }
 }

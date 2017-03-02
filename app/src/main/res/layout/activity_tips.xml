@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:text="Sustainablity Tips!"
+        android:text="Sustainablity Tips and Your Results!"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/learn"
@@ -23,5 +23,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/back"
         android:onClick="openNewMain" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/results"
+        android:text="Overall Results" />
 
 </LinearLayout>

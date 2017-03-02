@@ -71,6 +71,18 @@ public class TipsActivity extends AppCompatActivity {
             temp.setLayoutParams(params);
             dimensions.addView(temp);
         }
+        Button results = (Button) findViewById(R.id.submit);
+        results.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openResults();
+            }
+        });
+    }
+
+    private void openResults() {
+        Intent intent = new Intent(this, Results.class);
+        startActivity(intent);
     }
 
     private void color(Button temp, int i) {

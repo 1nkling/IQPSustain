@@ -1,6 +1,7 @@
 package com.example.SustainibilityStoplight;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -50,20 +51,24 @@ public class BooleanQuestion extends RadioGroup implements IQuestion {
 
     //TODO maybe do more error checking
     public int getAnswer(){
+        int retVal = -1;
         if (yes.isChecked()){
-            return 1;
+            retVal = 1;
         } else if (no.isChecked()){
-            return 0;
+            retVal = 0;
         }
-        return -1;
+        Log.wtf("Evin", "" + retVal);
+        return retVal;
     }
 
     @Override
     public void setAnswer(int answer) {
         if (answer == 1) {
-            yes.toggle();
+            yes.setChecked(true);
+            no.setChecked(false);
         } else if (answer == 0) {
-            no.toggle();
+            yes.setChecked(false);
+            no.setChecked(true);
         } else {
             yes.setChecked(false);
             no.setChecked(false);
